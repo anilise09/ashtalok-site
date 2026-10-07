@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300" aria-hidden="true" focusable="false">
+<!-- Rook: the wall-warden in a long structured coat with a brick stand-collar and a teal visor. Arms crossed. -->
+<defs>
+  <linearGradient id="rk-brick" x1="0" y1="98" x2="0" y2="126" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2F66CC"/><stop offset="1" stop-color="#00B4BA"/></linearGradient>
+  <clipPath id="rk-collar-clip"><path d="M94 98H146L152 122Q120 130 88 122Z"/></clipPath>
+</defs>
+<g stroke="#0A1B44" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+  <ellipse cx="120" cy="289" rx="66" ry="7" fill="#062B79" opacity=".16" stroke="none"/>
+  <!-- legs + boots -->
+  <path d="M100 236L98 276H114L118 236Z" fill="#0E2350"/>
+  <path d="M122 236L126 276H142L140 236Z" fill="#0E2350"/>
+  <path d="M114 272H98C90 272 84 278 84 285V287H114Z" fill="#0B2A33"/>
+  <path d="M126 272H142C150 272 156 278 156 285V287H126Z" fill="#0B2A33"/>
+  <path d="M85 283H113M127 283H155" stroke="#2FD2D6" stroke-width="2"/>
+  <!-- coat -->
+  <path d="M84 118C98 112 142 112 156 118L172 128C176 162 178 206 184 252Q152 260 124 256L120 206L116 256Q88 260 56 252C62 206 64 162 68 128Z" fill="#1747A6"/>
+  <path d="M64 196C62 220 60 236 59 250" fill="none" stroke="#3A74DB" stroke-width="3"/>
+  <path d="M176 196C178 220 180 236 181 250" fill="none" stroke="#0F3A8C" stroke-width="3"/>
+  <path d="M120 206L116 256Q108 257 100 257L112 206Z" fill="#123C8F" stroke="none"/>
+  <path d="M120 206L124 256Q132 257 140 257L128 206Z" fill="#123C8F" stroke="none"/>
+  <path d="M116 256L120 206L124 256" fill="none" stroke="#2FD2D6" stroke-width="2"/>
+  <!-- belt -->
+  <path d="M68 194Q120 201 172 194L173 207Q120 214 67 207Z" fill="#0B2A33"/>
+  <g transform="translate(120 202)" stroke="none" fill="#2FD2D6"><rect x="-8" y="-5.5" width="7.5" height="5" rx="1.2"/><rect x="0.5" y="-5.5" width="7.5" height="5" rx="1.2"/><rect x="-8" y="0.5" width="3.5" height="5" rx="1.2"/><rect x="-3.5" y="0.5" width="7" height="5" rx="1.2"/><rect x="4.5" y="0.5" width="3.5" height="5" rx="1.2"/></g>
+  <!-- lapel V showing the undershirt -->
+  <path d="M106 118L120 148L134 118Z" fill="#0B2A33"/>
+  <path d="M106 118L120 148L134 118" fill="none" stroke="#2FD2D6" stroke-width="2"/>
+  <!-- upper arms -->
+  <path d="M68 130C58 148 58 170 63 188L90 188C92 170 94 150 92 132Z" fill="#1747A6"/>
+  <path d="M172 130C182 148 182 170 177 188L150 188C148 170 146 150 148 132Z" fill="#1747A6"/>
+  <!-- square shoulder plates -->
+  <path d="M60 144C58 124 72 114 96 116L98 134C84 132 70 136 60 144Z" fill="#0F3A8C"/>
+  <path d="M180 144C182 124 168 114 144 116L142 134C156 132 170 136 180 144Z" fill="#0F3A8C"/>
+  <path d="M66 132L90 124M174 132L150 124" stroke="#2FD2D6" stroke-width="2"/>
+  <!-- crossed forearms: back one runs up to the right, its fingers wrap the right bicep -->
+  <path d="M74 186L160 168" stroke="#0A1B44" stroke-width="26"/>
+  <path d="M74 186L160 168" stroke="#123C8F" stroke-width="21"/>
+  <path d="M158 160C168 156 176 160 176 168C176 176 168 180 160 178Z" fill="#C68A64"/>
+  <path d="M166 162V177M171 163V176" stroke="#8E5A3E" stroke-width="1.6"/>
+  <!-- front one runs up to the left, its fist rests on the left bicep -->
+  <path d="M166 186L82 164" stroke="#0A1B44" stroke-width="26"/>
+  <path d="M166 186L82 164" stroke="#1D52B8" stroke-width="21"/>
+  <path d="M96 156L91 176" stroke="#2FD2D6" stroke-width="3.5"/>
+  <path d="M88 154C80 150 68 152 66 162C64 172 74 176 82 175L90 174Z" fill="#C68A64"/>
+  <path d="M71 160H80M70 166H80" stroke="#8E5A3E" stroke-width="1.6"/>
+  <!-- neck -->
+  <path d="M110 92H130V110H110Z" fill="#A96E4E"/>
+  <!-- brick stand-collar -->
+  <path d="M94 98H146L152 122Q120 130 88 122Z" fill="url(#rk-brick)"/>
+  <g clip-path="url(#rk-collar-clip)" fill="none" stroke="#062B79" stroke-width="1.6">
+    <path d="M84 110H156M120 98V110M104 98V110M136 98V110M112 110V130M128 110V130M96 110V130M144 110V130"/>
+  </g>
+  <path d="M94 98H146L152 122Q120 130 88 122Z" fill="none"/>
+  <!-- ears -->
+  <ellipse cx="94" cy="72" rx="5" ry="7" fill="#B77955"/>
+  <ellipse cx="146" cy="72" rx="5" ry="7" fill="#B77955"/>
+  <!-- face -->
+  <path d="M96 60C96 44 106 36 120 36C134 36 144 44 144 60V76C144 90 134 99 120 99C106 99 96 90 96 76Z" fill="#C68A64"/>
+  <!-- hair: undercut sides, one swept blade on top with a teal streak -->
+  <path d="M94 68C90 50 94 36 104 30C112 20 138 12 160 24C152 25 148 28 150 34C154 44 152 54 150 62L146 58C146 50 140 46 132 46H112C104 47 99 54 98 68Z" fill="#14213D"/>
+  <path d="M128 26C138 20 150 20 158 24C150 25 146 27 142 32Z" fill="#2FD2D6" stroke="none"/>
+  <!-- visor -->
+  <path d="M89 62Q120 55 151 62L149 77Q120 84 91 77Z" fill="#0B2A33"/>
+  <path d="M96 66Q120 61 144 66L143 72Q120 77 97 72Z" fill="#2FD2D6" stroke="none"/>
+  <path d="M100 66.5Q108 64.5 116 64" fill="none" stroke="#FFFFFF" stroke-width="1.8" opacity=".85"/>
+  <rect x="85" y="64" width="8" height="13" rx="3" fill="#1747A6"/>
+  <rect x="147" y="64" width="8" height="13" rx="3" fill="#1747A6"/>
+  <circle cx="89" cy="70.5" r="1.8" fill="#2FD2D6" stroke="none"/>
+  <circle cx="151" cy="70.5" r="1.8" fill="#2FD2D6" stroke="none"/>
+  <!-- brows -->
+  <path d="M102 56L113 54M127 54L138 55" stroke="#14213D" stroke-width="3.2"/>
+  <!-- nose + smirk -->
+  <path d="M121 79Q124 84 119 85" fill="none" stroke="#A96E4E" stroke-width="2"/>
+  <path d="M112 90Q121 93 130 88" fill="none" stroke="#5B2E22" stroke-width="2.6"/>
+</g>
+</svg>

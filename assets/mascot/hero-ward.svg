@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300" aria-hidden="true" focusable="false">
+<!-- Ward: the gate operator. Fitted suit, one brick shoulder guard, headset with a single teal HUD lens, high ponytail. -->
+<defs>
+  <linearGradient id="wd-brick" x1="0" y1="112" x2="0" y2="156" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2F66CC"/><stop offset="1" stop-color="#00B4BA"/></linearGradient>
+  <clipPath id="wd-guard"><path d="M128 114L158 118C170 122 174 132 174 146L170 156L138 150Z"/></clipPath>
+</defs>
+<g stroke="#0A1B44" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+  <ellipse cx="120" cy="289" rx="58" ry="7" fill="#062B79" opacity=".16" stroke="none"/>
+  <!-- ponytail (behind) -->
+  <path d="M134 36C152 24 176 32 180 56C184 78 172 96 180 114C162 108 156 88 158 68C158 56 152 48 142 46Z" fill="#1B1F3B"/>
+  <path d="M172 96C174 104 176 110 180 114C170 112 166 106 164 98Z" fill="#2FD2D6"/>
+  <!-- legs -->
+  <path d="M94 194L92 276H110L118 200Z" fill="#1747A6"/>
+  <path d="M146 194L148 276H130L122 200Z" fill="#1747A6"/>
+  <!-- boots -->
+  <path d="M91 238H111L110 287H82C82 281 86 277 91 276Z" fill="#0E2350"/>
+  <path d="M129 238H149V276C154 277 158 281 158 287H130Z" fill="#0E2350"/>
+  <path d="M92 246H111M129 246H148" stroke="#2FD2D6" stroke-width="2"/>
+  <!-- arm on hip (viewer left) -->
+  <path d="M90 126L68 160L92 184" fill="none" stroke="#0A1B44" stroke-width="21"/>
+  <path d="M90 126L68 160L92 184" fill="none" stroke="#1D52B8" stroke-width="16"/>
+  <!-- torso -->
+  <path d="M92 116H148L156 128L150 198H90L84 128Z" fill="#1747A6"/>
+  <path d="M100 130L120 150L140 130" fill="none" stroke="#2FD2D6" stroke-width="2"/>
+  <!-- belt -->
+  <path d="M89 184H151L150 196H90Z" fill="#0B2A33"/>
+  <rect x="112" y="183" width="16" height="15" rx="3" fill="#0B2A33"/>
+  <g transform="translate(120 190.5)" stroke="none" fill="#2FD2D6"><rect x="-6" y="-4.5" width="5.5" height="4" rx="1"/><rect x="0.5" y="-4.5" width="5.5" height="4" rx="1"/><rect x="-6" y="0.5" width="2.5" height="4" rx="1"/><rect x="-2.5" y="0.5" width="5" height="4" rx="1"/><rect x="3.5" y="0.5" width="2.5" height="4" rx="1"/></g>
+  <!-- fist on hip -->
+  <circle cx="93" cy="184" r="8" fill="#E0A987"/>
+  <!-- other arm, relaxed -->
+  <path d="M152 128L162 166L158 196" fill="none" stroke="#0A1B44" stroke-width="21"/>
+  <path d="M152 128L162 166L158 196" fill="none" stroke="#1D52B8" stroke-width="16"/>
+  <path d="M152 192L164 194" stroke="#2FD2D6" stroke-width="4"/>
+  <circle cx="158" cy="202" r="8" fill="#E0A987"/>
+  <!-- brick shoulder guard -->
+  <path d="M128 114L158 118C170 122 174 132 174 146L170 156L138 150Z" fill="url(#wd-brick)"/>
+  <g clip-path="url(#wd-guard)" fill="none" stroke="#062B79" stroke-width="1.6">
+    <path d="M124 126H180M124 139H180M146 112V126M162 112V126M154 126V139M170 126V139M146 139V156M162 139V156"/>
+  </g>
+  <path d="M128 114L158 118C170 122 174 132 174 146L170 156L138 150Z" fill="none"/>
+  <!-- neck + high collar -->
+  <path d="M111 92H129V110H111Z" fill="#C98F6E"/>
+  <path d="M104 106H136L138 118Q120 124 102 118Z" fill="#0B2A33"/>
+  <path d="M104 110Q120 115 136 110" fill="none" stroke="#2FD2D6" stroke-width="2"/>
+  <!-- ears -->
+  <ellipse cx="97" cy="72" rx="4.5" ry="6.5" fill="#D09A7A"/>
+  <!-- face -->
+  <path d="M97 58C97 44 107 38 120 38C133 38 143 44 143 58V76C143 90 133 100 120 100C107 100 97 90 97 76Z" fill="#E0A987"/>
+  <!-- hair -->
+  <path d="M95 70C91 44 104 30 122 30C140 30 150 42 148 60L144 56C140 50 134 46 126 46C116 46 106 52 100 70Z" fill="#1B1F3B"/>
+  <rect x="136" y="30" width="10" height="10" rx="3" fill="#2FD2D6" transform="rotate(-30 141 35)"/>
+  <!-- headset -->
+  <path d="M96 60C96 36 144 36 144 60" fill="none" stroke="#0B2A33" stroke-width="4"/>
+  <rect x="139" y="62" width="11" height="18" rx="5" fill="#0B2A33"/>
+  <path d="M144 78Q142 92 130 92" fill="none" stroke="#0B2A33" stroke-width="3"/>
+  <circle cx="129" cy="92" r="2.5" fill="#2FD2D6" stroke-width="1.5"/>
+  <!-- HUD lens over the right eye (viewer right) -->
+  <path d="M142 64L126 64Q122 64 122 68V74Q122 78 126 78H142" fill="#2FD2D6" fill-opacity=".45" stroke="#0B2A33" stroke-width="2.4"/>
+  <!-- brows -->
+  <path d="M104 60L114 58M127 58L137 59" stroke="#1B1F3B" stroke-width="3"/>
+  <!-- eyes -->
+  <path d="M104 70Q109 66 114 70" fill="none" stroke-width="2.6"/>
+  <circle cx="109" cy="71" r="2.6" fill="#0A1B44" stroke="none"/>
+  <circle cx="131" cy="71" r="2.6" fill="#0A1B44" stroke="none"/>
+  <path d="M126 70Q131 66 136 70" fill="none" stroke-width="2.6"/>
+  <!-- nose + smile -->
+  <path d="M121 76Q123 81 119 82" fill="none" stroke="#B87858" stroke-width="2"/>
+  <path d="M112 88Q120 92 128 87" fill="none" stroke="#7A2F2A" stroke-width="2.6"/>
+</g>
+</svg>

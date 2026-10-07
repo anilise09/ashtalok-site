@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What DNS blocking can and can't do · AshtaLok blog</title>
+<meta name="description" content="Blocking addresses stops many ads and trackers before they load. The honest limits, including the YouTube app and ads served from the same domain as the content.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AshtaLok">
+<meta property="og:title" content="What DNS blocking can and can't do · AshtaLok blog">
+<meta property="og:description" content="Blocking addresses stops many ads and trackers before they load. The honest limits, including the YouTube app and ads served from the same domain as the content.">
+<meta property="og:image" content="https://ashtalok.ashtadeep.com/assets/brand/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The AshtaLok logo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/v2.css">
+<link rel="stylesheet" href="css/v2-mascot.css">
+<script src="js/v2.js"></script>
+<script src="js/rook.js" defer></script>
+</head>
+<body>
+<a class="v2-skip" href="#main">Skip to content</a>
+<header class="v2-nav">
+  <nav class="v2-nav-in" aria-label="Main">
+    <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+    <ul class="v2-links"><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone</a></li><li><a href="passwords.html">Passwords</a></li><li><a href="help.html">Help</a></li></ul>
+    <div class="v2-nav-cta"><time class="v2-clock" aria-hidden="true"></time></div>
+    <details class="v2-menu">
+      <summary aria-label="Menu"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></summary>
+      <div class="v2-menu-panel"><a href="android.html">Android</a><a href="browser-extension.html">Extension</a><a href="desktop.html">Windows</a><a href="iphone.html">iPhone</a><a href="passwords.html">Passwords</a><a href="help.html">Help</a><a href="blog.html">Blog</a></div>
+    </details>
+  </nav>
+</header>
+<main id="main">
+<article aria-labelledby="post-title">
+  <section class="hero page-hero" style="padding-bottom:24px">
+    <div class="wrap" style="max-width:780px;text-align:left">
+    <div class="mascot-slot" data-pose="neutral"><img src="assets/mascot/rook.webp" alt="" width="200" height="250"></div>
+      <p class="eyebrow"><a href="blog.html">Blog</a> · How it works</p>
+      <h1 class="d2" id="post-title">What DNS blocking can and can't do</h1>
+      <p class="post-meta"><time datetime="2026-09-15">15 September 2026</time> · The AshtaLok team</p>
+    </div>
+  </section>
+  <section class="sec tight" style="padding-top:8px"><div class="wrap"><div class="post">
+          <p class="lead" style="margin:0 0 8px">AshtaLok's Android app blocks ads and trackers by refusing to look up their addresses. It's a good method, and it has limits. You should know both before you install it.</p>
+
+          <h2>How it works, briefly</h2>
+          <p>Every app has to turn a server name, like <code>ads.example.com</code>, into an address before it can connect. That lookup is DNS. AshtaLok answers those lookups on your phone. If the name is on a block list, the app gets no address and the ad or tracker never loads. If it isn't, AshtaLok looks it up over encrypted DNS and passes the answer on.</p>
+
+          <h2>What it does well</h2>
+          <ul>
+            <li><b>It covers apps</b>, not just one browser. Games, news apps and anything else that fetches ads from a separate ad server are covered.</li>
+            <li><b>It stops trackers before they send anything.</b> If a tracker's server can't be found, nothing about your visit is sent to it.</li>
+            <li><b>It's light.</b> Checking a name against a list is cheap, and blocked ads are never downloaded at all.</li>
+            <li><b>It's easy to understand.</b> Every block is one name and one rule, and recent activity shows you both.</li>
+          </ul>
+
+          <h2>What it can't do</h2>
+          <h3>Ads served from the same place as the content</h3>
+          <p>DNS blocking works on names. If a service delivers its ads from the same server name as the page or video you want, blocking that name blocks everything. There's nothing to separate at the DNS level. Some sites and apps do exactly this.</p>
+
+          <h3>Ads in the YouTube app</h3>
+          <p>This is the question we expect to hear most, so here's the plain answer: <b>AshtaLok can't block ads inside the YouTube app on a phone that isn't rooted.</b> The ads arrive from the same servers as the videos. Blocking by address can't separate the two.</p>
+          <p>What AshtaLok offers instead is its private browser. Share a video from the YouTube app to AshtaLok and it opens there, where the page can be filtered, and plays without ads.</p>
+
+          <h3>Hiding the space an ad leaves</h3>
+          <p>When an ad is blocked, some apps and pages leave an empty box or a “content not available” notice where it would have been. Removing that needs changes to the page itself, which DNS blocking can't make.</p>
+
+          <h3>Apps that bring their own lookups</h3>
+          <p>A few apps skip the phone's normal lookup and use their own encrypted DNS or fixed addresses. AshtaLok can't see those requests by name, so it can't block them by name.</p>
+
+          <h2>What's coming, and what isn't</h2>
+          <p>HTTPS filtering is in testing. When it arrives, it will be able to remove ads served from the same address as the page in supported browsers, using a certificate made on your phone. You'll have to switch it on, and banking and other sensitive apps will be left alone. It still won't change what's possible inside the YouTube app.</p>
+          <p>No ad blocker blocks every ad. What we can promise is that AshtaLok shows you what it blocked and why, so you can judge how well it works for you.</p>
+        </div></div></section>
+</article>
+</main>
+<footer class="v2-foot site-footer">
+  <div class="wrap-wide">
+    <div class="v2-foot-cols">
+      <div>
+        <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+        <p>Ads stop at the wall. Decided on your device.</p>
+      </div>
+      <div><h2>Products</h2><ul><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Browser extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone and iPad</a></li><li><a href="passwords.html">Password manager</a></li></ul></div>
+      <div><h2>Support</h2><ul><li><a href="help.html">Help center</a></li><li><a href="welcome.html">Getting started</a></li><li><a href="help.html#report">Report a problem</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div><h2>Account</h2><ul><li><a href="download.html">Download</a></li></ul></div>
+      <div><h2>This site</h2><ul><li><a href="products.html">All products</a></li></ul></div>
+    </div>
+    <p class="fine">© 2026 AshtaLok. This website runs no analytics or trackers and loads nothing from other companies. It sets no cookies unless you sign in, and then only the one that keeps you signed in.</p>
+    <p class="fine">The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License. Android is a trademark of Google LLC; the other product names here are their owners' trademarks, and AshtaLok is not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

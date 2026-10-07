@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why everything is decided on the device · AshtaLok blog</title>
+<meta name="description" content="An ad blocker sees where you go. Why AshtaLok makes every decision on your phone and keeps what it sees there.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AshtaLok">
+<meta property="og:title" content="Why everything is decided on the device · AshtaLok blog">
+<meta property="og:description" content="An ad blocker sees where you go. Why AshtaLok makes every decision on your phone and keeps what it sees there.">
+<meta property="og:image" content="https://ashtalok.ashtadeep.com/assets/brand/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The AshtaLok logo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/v2.css">
+<link rel="stylesheet" href="css/v2-mascot.css">
+<script src="js/v2.js"></script>
+<script src="js/rook.js" defer></script>
+</head>
+<body>
+<a class="v2-skip" href="#main">Skip to content</a>
+<header class="v2-nav">
+  <nav class="v2-nav-in" aria-label="Main">
+    <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+    <ul class="v2-links"><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone</a></li><li><a href="passwords.html">Passwords</a></li><li><a href="help.html">Help</a></li></ul>
+    <div class="v2-nav-cta"><time class="v2-clock" aria-hidden="true"></time></div>
+    <details class="v2-menu">
+      <summary aria-label="Menu"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></summary>
+      <div class="v2-menu-panel"><a href="android.html">Android</a><a href="browser-extension.html">Extension</a><a href="desktop.html">Windows</a><a href="iphone.html">iPhone</a><a href="passwords.html">Passwords</a><a href="help.html">Help</a><a href="blog.html">Blog</a></div>
+    </details>
+  </nav>
+</header>
+<main id="main">
+<article aria-labelledby="post-title">
+  <section class="hero page-hero" style="padding-bottom:24px">
+    <div class="wrap" style="max-width:780px;text-align:left">
+    <div class="mascot-slot" data-pose="neutral"><img src="assets/mascot/rook.webp" alt="" width="200" height="250"></div>
+      <p class="eyebrow"><a href="blog.html">Blog</a> · Privacy</p>
+      <h1 class="d2" id="post-title">Why everything is decided on the device</h1>
+      <p class="post-meta"><time datetime="2026-09-08">8 September 2026</time> · The AshtaLok team</p>
+    </div>
+  </section>
+  <section class="sec tight" style="padding-top:8px"><div class="wrap"><div class="post">
+          <p class="lead" style="margin:0 0 8px">Any ad blocker that works across a whole phone ends up seeing a list of every address your apps ask for. That list says a lot about you. So the first design decision we made was where that list is allowed to live.</p>
+
+          <h2>What an ad blocker sees</h2>
+          <p>Before an app loads anything, it asks for an address: the name of a server, turned into a number the phone can connect to. A news app asks for its own server, then for the servers of its ad networks and analytics companies. A banking app asks for the bank. A health app asks for whatever it talks to.</p>
+          <p>To block ads this way, something has to look at each of those requests and decide. Whoever makes that decision sees the requests. There's no way around that part. The only choice is <em>where</em> the decision happens.</p>
+
+          <h2>The two common ways to do it</h2>
+          <p>One way is to send your lookups to a filtering server run by the company that makes the blocker. It's simple to build and easy to update, and it means that company receives a stream of the addresses your phone looks up.</p>
+          <p>The other way is to make the decision on the phone. The block lists are downloaded to the device, every request is checked there, and the answer never has to leave. That's the way AshtaLok works.</p>
+
+          <h2>What “on the device” means in practice</h2>
+          <ul>
+            <li><b>Blocking decisions</b> are made on your phone, against lists stored on your phone and the rules you wrote.</li>
+            <li><b>Addresses that are allowed</b> still need to be looked up. AshtaLok does that over encrypted DNS, with a provider you choose, the same way your phone would look them up without AshtaLok. Those lookups don't pass through a AshtaLok server.</li>
+            <li><b>Recent activity and statistics</b> are kept on the phone, encrypted, so you can see what was blocked and why. You can clear them whenever you like, and there's no copy elsewhere to worry about.</li>
+            <li><b>The password manager</b> keeps its vault on the phone too.</li>
+          </ul>
+          <p>Android makes AshtaLok use its VPN setting to do this, which is why you'll see a key icon in the status bar. It isn't a VPN service. Your traffic isn't sent anywhere new and your location doesn't change.</p>
+
+          <h2>What it costs us</h2>
+          <p>Deciding on the device isn't free. Lists have to be small and fast enough to check on a phone without draining the battery. Updates arrive as list downloads rather than instant server-side changes. And when something breaks, we can't look it up on our side, because there's nothing on our side to look at.</p>
+          <p>That last one shaped how support works. When you report a problem, the app writes a report, shows you all of it, and hands it to your own email app. It includes things like your app version, phone model and settings. It doesn't include the addresses you visited, your history or your passwords. You decide whether to send it.</p>
+
+          <h2>What we ask you to check</h2>
+          <p>You shouldn't have to take our word for any of this. Once AshtaLok is released, the encrypted DNS provider you choose is shown in the app, recent activity shows every block and the rule that caused it, and the support report shows you exactly what it would send. If something here doesn't match what you see, we want to know.</p>
+        </div></div></section>
+</article>
+</main>
+<footer class="v2-foot site-footer">
+  <div class="wrap-wide">
+    <div class="v2-foot-cols">
+      <div>
+        <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+        <p>Ads stop at the wall. Decided on your device.</p>
+      </div>
+      <div><h2>Products</h2><ul><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Browser extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone and iPad</a></li><li><a href="passwords.html">Password manager</a></li></ul></div>
+      <div><h2>Support</h2><ul><li><a href="help.html">Help center</a></li><li><a href="welcome.html">Getting started</a></li><li><a href="help.html#report">Report a problem</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div><h2>Account</h2><ul><li><a href="download.html">Download</a></li></ul></div>
+      <div><h2>This site</h2><ul><li><a href="products.html">All products</a></li></ul></div>
+    </div>
+    <p class="fine">© 2026 AshtaLok. This website runs no analytics or trackers and loads nothing from other companies. It sets no cookies unless you sign in, and then only the one that keeps you signed in.</p>
+    <p class="fine">The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License. Android is a trademark of Google LLC; the other product names here are their owners' trademarks, and AshtaLok is not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

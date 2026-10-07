@@ -1,0 +1,9 @@
+/* Rook's page (website/v2/mascot.html) in the v2 design. css/mascot.css still draws the pose sheets and
+   grounds; this sheet gives it the few rules it took from the old site's styles.css. Colours are tokens. */
+.rook-page section.block { padding-block: 72px; }
+.rook-page section.block + section.block { border-top: 1px solid var(--glass-edge); }
+.rook-page .section-head { max-width: var(--measure); display: flex; flex-direction: column; gap: 14px; }
+.rook-page .section-head h2 { font-family: var(--font-display); font-size: clamp(32px, 4.5vw, 46px); line-height: 1.06; letter-spacing: -0.03em; font-weight: 700; margin: 0; }
+.rook-page .section-head p { color: var(--ink-2); font-size: 18px; margin: 0; }
+.rook-page .site-note { margin-top: 48px; font-size: 15px; color: var(--ink-3); }
+.rook-page code { font-family: var(--font-mono); font-size: 0.9em; }

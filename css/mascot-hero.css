@@ -1,0 +1,57 @@
+/* Rook, the QuietWall mascot, in page heroes and small spots.
+   Load after the page's own stylesheet; it only sizes the mascot and never moves page content. */
+
+.mascot-slot { width: 200px; flex: 0 0 auto; justify-self: end; align-self: center; }
+.mascot-slot:empty { display: none; }
+.mascot-slot img { display: block; width: 100%; height: auto; }
+
+/* Idle: a slow, small bob. */
+@media (prefers-reduced-motion: no-preference) {
+  .mascot-slot img, .qw-warden { animation: mh-bob 5.5s ease-in-out infinite; }
+}
+@keyframes mh-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+@media (max-width: 900px) {
+  .mascot-slot { width: 160px; }
+}
+/* Phones: a small figure above the eyebrow, never beside the text. */
+@media (max-width: 720px) {
+  .page-hero .wrap.hero-row .mascot-slot { order: -1; align-self: flex-start; width: 104px; margin-bottom: -4px; }
+}
+@media (max-width: 640px) {
+  .mascot-slot { width: 104px; justify-self: start; align-self: start; order: -1; margin-bottom: -4px; }
+}
+
+/* Head-and-shoulders avatar beside a heading */
+.mh-speaker { display: flex; align-items: flex-end; gap: 18px; }
+.mh-speaker .section-head { flex: 1 1 auto; min-width: 0; }
+.mh-avatar { flex: 0 0 auto; width: 64px; height: 64px; }
+@media (max-width: 640px) {
+  .mh-avatar { width: 52px; height: 52px; }
+  .mh-speaker { gap: 14px; }
+}
+
+/* Inline avatar in a small heading (account home) */
+.mh-inline { display: inline-flex; align-items: center; gap: 10px; }
+.mh-inline img { width: 32px; height: 32px; flex: none; }
+
+/* Rook on video in page heroes (js/rook.js). The still pose above stays in place for Safari, iOS and
+   reduced motion; once the clips play it is hidden and Rook walks, waves and presents instead. */
+.page-hero.rk-live { position: relative; overflow: hidden; }
+.page-hero.rk-live .hero-text, .page-hero.rk-live .hero-split > div:first-child { position: relative; z-index: 2; }
+.mascot-slot.rk-on { position: relative; z-index: 1; cursor: pointer; }
+.mascot-slot.rk-on.has-video > img { visibility: hidden; animation: none; }
+/* The clips' 560x600 canvas, sized and offset so the figure lands exactly on the still pose */
+.mascot-slot .rk-walk { position: absolute; left: -10.42%; top: -1.79%; width: 120.85%; aspect-ratio: 560 / 600; will-change: transform; }
+.mascot-slot .rk-walk video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
+.mascot-slot .rk-walk video.v-present { width: 93.27%; }
+.mascot-slot .rk-walk video.on { opacity: 1; }
+
+/* Rook in the footer, standing on the bottom edge under the Account column */
+.site-footer.rk-foot-on { position: relative; overflow: hidden; }
+.site-footer.rk-foot-on .footer-cols > div, .site-footer.rk-foot-on .footer-bottom { position: relative; z-index: 2; }
+.site-footer .rk-foot { position: absolute; z-index: 1; bottom: 0; width: 140px; right: max(20px, calc((100% - 1120px) / 2 + 20px)); }
+@media (max-width: 900px) {
+  .site-footer.rk-foot-on .wrap { padding-bottom: 150px; }
+  .site-footer .rk-foot { width: 110px; }
+}

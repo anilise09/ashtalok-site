@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AshtaLok help center</title>
+<meta name="description" content="Short, plain answers about setting up AshtaLok, blocking and allowing, encrypted DNS, the password manager, the browser extension and fixing problems.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AshtaLok">
+<meta property="og:title" content="AshtaLok help center">
+<meta property="og:description" content="Short, plain answers about setting up AshtaLok, blocking and allowing, encrypted DNS, the password manager, the browser extension and fixing problems.">
+<meta property="og:image" content="https://ashtalok.ashtadeep.com/assets/brand/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The AshtaLok logo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/v2.css">
+<link rel="stylesheet" href="css/v2-mascot.css">
+<script src="js/v2.js"></script>
+<script src="js/rook.js" defer></script>
+</head>
+<body>
+<a class="v2-skip" href="#main">Skip to content</a>
+<header class="v2-nav">
+  <nav class="v2-nav-in" aria-label="Main">
+    <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+    <ul class="v2-links"><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone</a></li><li><a href="passwords.html">Passwords</a></li><li><a href="help.html" aria-current="page">Help</a></li></ul>
+    <div class="v2-nav-cta"><time class="v2-clock" aria-hidden="true"></time></div>
+    <details class="v2-menu">
+      <summary aria-label="Menu"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></summary>
+      <div class="v2-menu-panel"><a href="android.html">Android</a><a href="browser-extension.html">Extension</a><a href="desktop.html">Windows</a><a href="iphone.html">iPhone</a><a href="passwords.html">Passwords</a><a href="help.html">Help</a><a href="blog.html">Blog</a></div>
+    </details>
+  </nav>
+</header>
+<main id="main">
+<section class="hero page-hero" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="mascot-slot" data-pose="neutral"><img src="assets/mascot/rook.webp" alt="" width="200" height="250"></div>
+    <h1 class="d1 reveal">How can we <span class="em">help?</span></h1>
+    <p class="lead reveal" style="--delay:80ms">Short answers. AshtaLok isn't released yet, so menu names may still change.</p>
+    <div id="help-search" hidden style="margin-top:30px">
+      <label class="sr" for="q">Search help articles</label>
+      <div class="field"><input type="search" id="q" placeholder="Search help" autocomplete="off"></div>
+      <p class="hint" id="search-status" aria-live="polite"></p>
+    </div>
+    <nav class="cats" aria-label="Categories"><a href="#getting-started">Getting started</a><a href="#blocking">Blocking &amp; allowing</a><a href="#dns">Encrypted DNS</a><a href="#passwords">Password manager</a><a href="#extension">Browser extension</a><a href="#troubleshooting">Troubleshooting</a><a href="#privacy">Privacy</a><a href="#report">Report a problem</a></nav>
+  </div>
+</section>
+<section class="sec" aria-label="Help articles">
+  <div class="wrap">
+    <div id="no-results" class="form-msg" hidden><b>No articles match that search.</b><p>Try a shorter word, browse the categories, or <a href="#report">send a support report</a> from the app.</p></div>
+    <section class="help-cat" id="getting-started" aria-labelledby="cat-start">
+          <h2 class="d3" id="cat-start">Getting started</h2>
+          <div class="faq articles">
+            <details id="vpn-permission" data-keywords="vpn permission setup install connection request key icon">
+              <summary>Why AshtaLok asks for the VPN permission</summary>
+              <div class="article-body">
+                <p>Android only lets an app see which addresses your apps ask for if it uses the phone's VPN setting. AshtaLok uses that setting to answer those requests <b>on your phone</b>. It is not a VPN service: your traffic isn't sent to a AshtaLok server and your location doesn't change.</p>
+                <ol>
+                  <li>Open AshtaLok and tap <b>Turn on protection</b>.</li>
+                  <li>Android shows a “Connection request” message. Tap <b>OK</b>.</li>
+                  <li>A small key icon appears in the status bar. That's Android telling you a VPN-setting app is active.</li>
+                </ol>
+                <p>If you tap Cancel, nothing is blocked until you allow it. You can ask again from the home screen.</p>
+                <a class="permalink" href="#vpn-permission">Link to this article</a>
+              </div>
+            </details>
+            <details id="protection-levels" data-keywords="light balanced strict extreme level setting">
+              <summary>Choosing a protection level</summary>
+              <div class="article-body">
+                <p>A level decides which block lists are on. You can change it at any time and the change applies straight away.</p>
+                <ul>
+                  <li><b>Light</b> blocks the most common ad servers. Pick it if you want the least chance of anything breaking.</li>
+                  <li><b>Balanced</b> blocks ads and trackers. It suits most people and is where AshtaLok starts.</li>
+                  <li><b>Strict</b> blocks more widely than Balanced. Some sites and apps may need an allow rule.</li>
+                  <li><b>Extreme</b>, in the Windows app only, turns on every blocking category AshtaLok has. On Android and in the browser extension, Strict already does. Expect to allow things now and then.</li>
+                </ul>
+                <p>If an app misbehaves after you move up a level, run <a href="#fix-an-app">Fix an app</a> rather than dropping back down.</p>
+                <a class="permalink" href="#protection-levels">Link to this article</a>
+              </div>
+            </details>
+            <details id="pause-protection" data-keywords="pause stop disable temporarily off 5 30 60 minutes hour">
+              <summary>Pausing protection for a few minutes</summary>
+              <div class="article-body">
+                <p>Pausing is the quickest way to check whether AshtaLok is behind a problem.</p>
+                <ol>
+                  <li>On the home screen, tap <b>Pause</b>.</li>
+                  <li>Choose <b>5 minutes</b>, <b>30 minutes</b> or <b>1 hour</b>.</li>
+                </ol>
+                <p>Protection comes back on by itself when the time is up, or tap <b>Resume</b> to end the pause early. If the problem goes away while paused, <a href="#fix-an-app">Fix an app</a> will help you find what to allow.</p>
+                <a class="permalink" href="#pause-protection">Link to this article</a>
+              </div>
+            </details>
+          </div>
+        </section><section class="help-cat" id="blocking" aria-labelledby="cat-blocking">
+          <h2 class="d3" id="cat-blocking">Blocking &amp; allowing</h2>
+          <div class="faq articles">
+            <details id="allow-a-site" data-keywords="allow whitelist allowlist unblock site broken website domain">
+              <summary>Allowing a site that stopped working</summary>
+              <div class="article-body">
+                <ol>
+                  <li>Open <b>Recent activity</b>. Blocked addresses are listed newest first, with the app that asked.</li>
+                  <li>Tap the address that belongs to the site.</li>
+                  <li>Tap <b>Allow</b>, then choose whether to allow it for a while or for good.</li>
+                </ol>
+                <p>Your allow rules take priority over ad and tracker lists. You can see and remove them later under your custom rules.</p>
+                <a class="permalink" href="#allow-a-site">Link to this article</a>
+              </div>
+            </details>
+            <details id="fix-an-app" data-keywords="fix an app guided check broken app not loading login fails">
+              <summary>Using the guided “Fix an app” check</summary>
+              <div class="article-body">
+                <p>When an app won't load, log in or play something, the guided check finds what was blocked while it misbehaved.</p>
+                <ol>
+                  <li>Open <b>Fix an app</b> and pick the app from the list.</li>
+                  <li>Go back to the app and repeat whatever failed.</li>
+                  <li>Return to AshtaLok. It lists what that app asked for and was refused during those moments.</li>
+                  <li>Allow the addresses it suggests, for a while or for good, then try the app again.</li>
+                </ol>
+                <p>If nothing on the list helps, the problem probably isn't AshtaLok. <a href="#pause-protection">Pause protection</a> to confirm.</p>
+                <a class="permalink" href="#fix-an-app">Link to this article</a>
+              </div>
+            </details>
+            <details id="block-lists" data-keywords="block list filter list easylist subscribe add url community">
+              <summary>Adding a block list</summary>
+              <div class="article-body">
+                <p>Your protection level already turns on a set of lists. You can add community lists, such as EasyList, on top.</p>
+                <ol>
+                  <li>Open <b>Block lists</b>.</li>
+                  <li>Switch on a list from the catalogue, or tap <b>Add a list</b> and paste the address of a list you trust.</li>
+                </ol>
+                <p>Lists are downloaded to your phone and matched there. Each extra list is something else that can block a site you need, so add lists you have a reason to use.</p>
+                <a class="permalink" href="#block-lists">Link to this article</a>
+              </div>
+            </details>
+            <details id="custom-rules" data-keywords="custom rules own rule block domain allow domain write">
+              <summary>Writing your own allow and block rules</summary>
+              <div class="article-body">
+                <p>Custom rules let you block an address the lists miss, or allow one they catch.</p>
+                <ol>
+                  <li>Open <b>Custom rules</b> and tap <b>Add rule</b>.</li>
+                  <li>Type the address, such as <b>ads.example.com</b>, and choose <b>Block</b> or <b>Allow</b>.</li>
+                </ol>
+                <p>Rules you add from Recent activity or Fix an app appear here too, so this is also where you undo them.</p>
+                <a class="permalink" href="#custom-rules">Link to this article</a>
+              </div>
+            </details>
+          </div>
+        </section><section class="help-cat" id="dns" aria-labelledby="cat-dns">
+          <h2 class="d3" id="cat-dns">Encrypted DNS</h2>
+          <div class="faq articles">
+            <details id="choose-dns-provider" data-keywords="dns provider doh dns over https encrypted resolver choose change">
+              <summary>Choosing an encrypted DNS provider</summary>
+              <div class="article-body">
+                <p>Addresses AshtaLok lets through still need to be looked up. AshtaLok does that over encrypted DNS (DNS over HTTPS, or DNS over TLS for Quad9), so people on the same network can't read which sites you look up.</p>
+                <ol>
+                  <li>Open <b>Encrypted DNS</b>.</li>
+                  <li>Pick a provider from the list, or enter the DoH address of one you prefer.</li>
+                </ol>
+                <p>Your lookups go to the provider you choose, not to AshtaLok. Pick one whose privacy policy you're comfortable with.</p>
+                <a class="permalink" href="#choose-dns-provider">Link to this article</a>
+              </div>
+            </details>
+            <details id="plain-dns" data-keywords="plain dns plaintext unencrypted udp warning opt in captive portal">
+              <summary>Why plain DNS is off, and when you might turn it on</summary>
+              <div class="article-body">
+                <p>Plain DNS can be read, and changed, by anyone between you and the server. AshtaLok never falls back to it on its own.</p>
+                <p>A few networks block encrypted DNS entirely. If lookups fail on one of them, you can switch on plain DNS yourself under <b>Encrypted DNS</b>. AshtaLok shows a warning first, and keeps showing that plain DNS is in use until you switch it off again.</p>
+                <a class="permalink" href="#plain-dns">Link to this article</a>
+              </div>
+            </details>
+          </div>
+        </section><section class="help-cat" id="passwords" aria-labelledby="cat-passwords">
+          <h2 class="d3" id="cat-passwords">Password manager</h2>
+          <div class="faq articles">
+            <details id="set-up-vault" data-keywords="password vault set up master password manager passwords create">
+              <summary>Setting up the password vault</summary>
+              <div class="article-body">
+                <p>The password manager is optional. Your vault is stored on your phone, encrypted, and isn't uploaded to AshtaLok.</p>
+                <ol>
+                  <li>Open <b>Passwords</b> and tap <b>Set up vault</b>.</li>
+                  <li>Choose how you'll unlock it.</li>
+                  <li>Add passwords by hand, or save them as you sign in once <a href="#turn-on-autofill">Autofill</a> is on.</li>
+                </ol>
+                <p>Because the vault lives only on this phone, keep your own backup of anything you can't afford to lose. More on the <a href="passwords.html">password manager page</a>.</p>
+                <a class="permalink" href="#set-up-vault">Link to this article</a>
+              </div>
+            </details>
+            <details id="turn-on-autofill" data-keywords="autofill android autofill service fill passwords login apps">
+              <summary>Turning on Autofill</summary>
+              <div class="article-body">
+                <p>AshtaLok fills passwords through Android's own Autofill service, which Android lets only one app provide at a time.</p>
+                <ol>
+                  <li>In AshtaLok, open <b>Passwords</b> and tap <b>Use for Autofill</b>. This opens Android's setting.</li>
+                  <li>Choose <b>AshtaLok</b> as the Autofill service and confirm.</li>
+                </ol>
+                <p>The setting's location differs between phone makers. If the shortcut doesn't open it, search Android's Settings for “Autofill”.</p>
+                <a class="permalink" href="#turn-on-autofill">Link to this article</a>
+              </div>
+            </details>
+          </div>
+        </section><section class="help-cat" id="extension" aria-labelledby="cat-extension">
+          <h2 class="d3" id="cat-extension">Browser extension</h2>
+          <div class="faq articles">
+            <details id="install-extension" data-keywords="browser extension chrome edge brave opera firefox install add-on">
+              <summary>Installing the browser extension</summary>
+              <div class="article-body">
+                <p>The extension is built for Chrome, Edge, Opera and Brave, with a separate build for Firefox. It's not in the browser stores yet; when it is, links will be on the <a href="browser-extension.html">browser extension page</a>.</p>
+                <p>Once installed, pin it to the toolbar so you can see how much it blocked on each page and pause it for a site.</p>
+                <a class="permalink" href="#install-extension">Link to this article</a>
+              </div>
+            </details>
+            <details id="app-and-extension" data-keywords="both app extension computer desktop need difference">
+              <summary>Do I need both the app and the extension?</summary>
+              <div class="article-body">
+                <p>They cover different places. The Android app filters every app on your phone. The extension filters the browser it's installed in, on a computer or wherever that browser runs.</p>
+                <p>Both use the same protection levels and lists, so a page should be treated the same way in either.</p>
+                <a class="permalink" href="#app-and-extension">Link to this article</a>
+              </div>
+            </details>
+          </div>
+        </section><section class="help-cat" id="troubleshooting" aria-labelledby="cat-troubleshooting">
+          <h2 class="d3" id="cat-troubleshooting">Troubleshooting</h2>
+          <div class="faq articles">
+            <details id="youtube-ads" data-keywords="youtube ads app video share private browser">
+              <summary>Ads still play in the YouTube app</summary>
+              <div class="article-body">
+                <p>AshtaLok can't block ads inside the YouTube app on a phone that isn't rooted. The ads come from the same servers as the videos, so blocking them would block the videos too.</p>
+                <p>Instead, tap <b>Share</b> on a video in the YouTube app and choose <b>AshtaLok</b>. It opens in AshtaLok's private browser and plays there without ads.</p>
+                <p>Why some ads can't be stopped by blocking addresses: <a href="blog-what-dns-blocking-can-and-cant-do.html">What DNS blocking can and can't do</a>.</p>
+                <a class="permalink" href="#youtube-ads">Link to this article</a>
+              </div>
+            </details>
+            <details id="another-vpn" data-keywords="another vpn conflict work vpn other app turned off">
+              <summary>AshtaLok turned off when I opened another VPN</summary>
+              <div class="article-body">
+                <p>Android lets only one app use the VPN setting at a time. When another VPN app connects, Android switches AshtaLok off.</p>
+                <p>Disconnect the other VPN and turn AshtaLok back on. If you need a work or travel VPN, AshtaLok can't filter while it's connected.</p>
+                <a class="permalink" href="#another-vpn">Link to this article</a>
+              </div>
+            </details>
+            <details id="keeps-turning-off" data-keywords="turns off stops restart battery optimization always-on reboot killed background">
+              <summary>Protection keeps switching itself off</summary>
+              <div class="article-body">
+                <p>Some phones close background apps to save battery. To keep AshtaLok running:</p>
+                <ol>
+                  <li>In Android's Settings, find AshtaLok under <b>Apps</b>, open <b>Battery</b>, and choose <b>Unrestricted</b> (the wording varies by phone maker).</li>
+                  <li>Optionally, in Android's VPN settings, open AshtaLok's gear icon and turn on <b>Always-on VPN</b>, so Android restarts it after a reboot.</li>
+                </ol>
+                <p>If it still stops, <a href="#report">send a support report</a> and tell us your phone model.</p>
+                <a class="permalink" href="#keeps-turning-off">Link to this article</a>
+              </div>
+            </details>
+          </div>
+        </section><section class="help-cat" id="privacy" aria-labelledby="cat-privacy">
+          <h2 class="d3" id="cat-privacy">Privacy</h2>
+          <div class="faq articles">
+            <details id="what-stays-on-device" data-keywords="privacy data stored on device server history collected">
+              <summary>What stays on your phone</summary>
+              <div class="article-body">
+                <p>AshtaLok decides what to block on your phone. Recent activity, statistics, your rules and your password vault are stored there, encrypted.</p>
+                <p>What leaves the phone: lookups for addresses AshtaLok lets through go to the encrypted DNS provider you picked, and block lists are downloaded from where they're published. A support report leaves only if you send it from your own email app.</p>
+                <p>Why we built it this way: <a href="blog-why-on-device.html">Why everything is decided on the device</a>.</p>
+                <a class="permalink" href="#what-stays-on-device">Link to this article</a>
+              </div>
+            </details>
+            <details id="clear-activity" data-keywords="clear delete history activity statistics erase reset">
+              <summary>Clearing recent activity and statistics</summary>
+              <div class="article-body">
+                <p>Open <b>Recent activity</b> or <b>Statistics</b> and tap <b>Clear</b>. The records are deleted from your phone; there's no copy anywhere else to delete.</p>
+                <p>Clearing them doesn't change your rules, lists or protection level.</p>
+                <a class="permalink" href="#clear-activity">Link to this article</a>
+              </div>
+            </details>
+          </div>
+        </section>
+  </div>
+</section>
+<section class="sec night" id="report" aria-labelledby="report-title">
+  <div class="wrap">
+    <div class="head center"><p class="eyebrow">Report a problem</p><h2 class="d2" id="report-title">From the app, <span class="em">through your email.</span></h2><p class="lead">No form here. You see everything before it's sent.</p></div>
+    <div class="facts">
+      <div class="fact"><span class="app-icon ai-green" aria-hidden="true"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><h3 class="d4">1. Start it in AshtaLok</h3><p>Help, then Report a problem. Say what happened.</p></div>
+      <div class="fact"><span class="app-icon ai-indigo" aria-hidden="true"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><h3 class="d4">2. Read what's in it</h3><p>App and Android version, phone model, your level and settings. Never the addresses you visited, your history or your passwords.</p></div>
+      <div class="fact"><span class="app-icon ai-blue" aria-hidden="true"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><h3 class="d4">3. Send it yourself</h3><p>From your own email app. Edit or delete it first if you like.</p></div>
+    </div>
+    <p class="cap center">Support address: AshtaLok isn't released yet. The address will be published here and in the app at launch.</p>
+  </div>
+</section>
+</main>
+<footer class="v2-foot site-footer">
+  <div class="wrap-wide">
+    <div class="v2-foot-cols">
+      <div>
+        <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+        <p>Ads stop at the wall. Decided on your device.</p>
+      </div>
+      <div><h2>Products</h2><ul><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Browser extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone and iPad</a></li><li><a href="passwords.html">Password manager</a></li></ul></div>
+      <div><h2>Support</h2><ul><li><a href="help.html">Help center</a></li><li><a href="welcome.html">Getting started</a></li><li><a href="help.html#report">Report a problem</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div><h2>Account</h2><ul><li><a href="download.html">Download</a></li></ul></div>
+      <div><h2>This site</h2><ul><li><a href="products.html">All products</a></li></ul></div>
+    </div>
+    <p class="fine">© 2026 AshtaLok. This website runs no analytics or trackers and loads nothing from other companies. It sets no cookies unless you sign in, and then only the one that keeps you signed in.</p>
+    <p class="fine">The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License. Android is a trademark of Google LLC; the other product names here are their owners' trademarks, and AshtaLok is not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

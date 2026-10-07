@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" aria-hidden="true" focusable="false">
+<ellipse cx="120" cy="214" rx="58" ry="7" fill="#062B79" opacity=".12"/>
+<rect x="82" y="192" width="30" height="20" rx="10" fill="#00787A"/>
+<rect x="128" y="192" width="30" height="20" rx="10" fill="#00787A"/>
+<path d="M66 138 Q50 146 48 166" fill="none" stroke="#00787A" stroke-width="13" stroke-linecap="round"/><circle cx="48" cy="168" r="9.5" fill="#00787A"/>
+<clipPath id="mortie-wave-c"><path d="M82 78 H158 A20 20 0 0 1 178 98 V180 A20 20 0 0 1 158 200 H82 A20 20 0 0 1 62 180 V98 A20 20 0 0 1 82 78 Z"/></clipPath>
+<path d="M62 60 A6 6 0 0 1 68 54 H86 A6 6 0 0 1 92 60 V78 H106 V60 A6 6 0 0 1 112 54 H128 A6 6 0 0 1 134 60 V78 H148 V60 A6 6 0 0 1 154 54 H172 A6 6 0 0 1 178 60 V180 A20 20 0 0 1 158 200 H82 A20 20 0 0 1 62 180 Z" fill="#00B4BA"/>
+<g fill="#2FD2D6">
+  <rect x="66" y="58" width="22" height="18" rx="4"/>
+  <rect x="110" y="58" width="20" height="18" rx="4"/>
+  <rect x="152" y="58" width="22" height="18" rx="4"/>
+  <g clip-path="url(#mortie-wave-c)">
+    <rect x="58" y="80" width="60" height="32" rx="6"/>
+    <rect x="122" y="80" width="60" height="32" rx="6"/>
+    <rect x="58" y="116" width="30" height="50" rx="6"/>
+    <rect x="92" y="116" width="56" height="50" rx="7"/>
+    <rect x="152" y="116" width="30" height="50" rx="6"/>
+    <rect x="58" y="170" width="60" height="34" rx="6"/>
+    <rect x="122" y="170" width="60" height="34" rx="6"/>
+  </g>
+</g>
+<path d="M70 86 H100" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+<path d="M100 138 Q107 128 114 138 M126 138 Q133 128 140 138" fill="none" stroke="#062B79" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="97" cy="151" rx="6.5" ry="4" fill="#F4A097"/>
+  <ellipse cx="143" cy="151" rx="6.5" ry="4" fill="#F4A097"/>
+  <path d="M110 147 H130 Q130 160 120 160 Q110 160 110 147 Z" fill="#062B79"/>
+  <path d="M114 155 Q120 151 126 155 Q124 160 120 160 Q116 160 114 155 Z" fill="#C8453D"/>
+<path d="M174 136 Q194 128 198 100" fill="none" stroke="#00787A" stroke-width="13" stroke-linecap="round"/><rect x="187" y="74" width="22" height="28" rx="11" fill="#00787A" transform="rotate(12 198 88)"/><g fill="none" stroke="#00B4BA" stroke-width="4.5" stroke-linecap="round">
+  <path d="M214 64 q9 8 4 21"/><path d="M225 57 q13 12 6 31"/>
+</g>
+</svg>

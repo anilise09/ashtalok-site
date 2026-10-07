@@ -1,0 +1,371 @@
+/* Rook, the QuietWall warden, on the v2 pages (website/v2/). Load after css/v2.css.
+   Home page: the live demo Rook explains and Rook walking the hero -- rules carried over unchanged from
+   css/home.css, which js/home.js drives. Every other page: Rook walks into the hero and stands in the
+   footer (js/rook.js), placed here for v2's centred heroes. Clips play only where transparent WebM
+   plays properly and never with reduced motion; the still art stays everywhere else. */
+
+/* ---------- From css/home.css: the live demo ---------- */
+/* The live demo: the real QuietWall app on a phone, standing in front of the lit wall */
+.stage-wrap { padding-block: 64px 0; text-align: left; }
+.demo-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.demo-head .eyebrow { color: var(--band-ink); }
+.demo-head h3 { font-size: clamp(26px, 3.4vw, 38px); margin-top: 8px; color: var(--white); }
+.demo-head h3 .em { color: var(--band-accent); }
+.replay { background: color-mix(in srgb, var(--night-deep) 35%, transparent); color: var(--white); border: 1px solid color-mix(in srgb, var(--white) 28%, transparent); border-radius: 12px; padding: 10px 16px; font: 600 14px var(--font-text); cursor: pointer; white-space: nowrap; }
+.replay:hover { background: color-mix(in srgb, var(--night-deep) 50%, transparent); }
+.stage {
+  position: relative; border-radius: 30px; overflow: hidden;
+  background: var(--stage) url("../assets/hero-bg.webp") right top / cover no-repeat; box-shadow: var(--shadow-stage);
+  display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 24px; align-items: stretch; padding: 40px 48px 40px 32px;
+}
+.stage::after { content: ""; position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(0deg, var(--stage-shade), transparent); pointer-events: none; }
+/* The caption sits where the hero fades into the page, so it takes the page's ink */
+.demo-cap { margin-top: 14px; font-size: 13px; color: var(--ink-2); text-align: center; }
+
+/* Rook the coach: same height as the phone, presenting it, explaining whatever was tapped */
+.coach { position: relative; z-index: 1; min-height: 0; container-type: size; }
+.coach-fig { position: absolute; right: 0; bottom: 0; height: 88%; height: min(88cqh, calc((100cqw - 280px) * 1.98)); aspect-ratio: 470 / 540; max-width: 100%; }
+.coach-fig .rk-fig { position: absolute; left: 9.25%; top: 1.73%; width: 88.7%; transform: scaleX(-1); }
+/* Video Rook: the hello wave (shared with the hero) and the presenting gesture, cut from Higgsfield clips */
+.coach-fig video { position: absolute; top: 0; left: 0; height: 100%; opacity: 0; transition: opacity .18s; }
+.coach-fig video.v-wave { width: 107.23%; }
+.coach-fig video.v-present { width: 100%; }
+.coach-fig video.on { opacity: 1; }
+.coach-fig.has-video .rk-fig { visibility: hidden; }
+.coach-fig .rk-arm { transform-origin: 46.8% 28.5%; }
+.coach-fig.presenting .rk-arm { animation: rk-present 1s cubic-bezier(.3,.7,.3,1); }
+@keyframes rk-present { 0%, 100% { transform: none; } 30% { transform: rotate(8deg); } 60% { transform: rotate(-2deg); } }
+.coach-fig.presenting .rk-fig { animation: rk-nod 1s ease-in-out; }
+@keyframes rk-nod { 0%, 100% { transform: scaleX(-1); } 35% { transform: scaleX(-1) translateY(-8px); } }
+.coach-bubble {
+  position: absolute; z-index: 2; left: 0; top: 14%; width: 270px;
+  background: var(--white); color: var(--bubble-ink); border-radius: 20px; padding: 16px 18px; box-shadow: 0 18px 40px -14px color-mix(in srgb, var(--night-deep) 60%, transparent);
+}
+.coach-bubble::after { content: ""; position: absolute; right: -8px; top: 34px; width: 18px; height: 18px; background: var(--white); transform: rotate(45deg); border-radius: 3px; }
+.coach-bubble.pop { animation: cb-pop .35s cubic-bezier(.2,.9,.3,1.3); }
+@keyframes cb-pop { from { transform: scale(.94); opacity: .4; } to { transform: none; opacity: 1; } }
+.cb-t { font: 700 18px/1.2 var(--font-display); }
+.cb-b { margin-top: 6px; font-size: 15px; line-height: 1.45; color: var(--bubble-ink-2); }
+.cb-k { display: inline-block; margin-bottom: 6px; font: 600 12px var(--font-text); letter-spacing: .1em; text-transform: uppercase; color: var(--bubble-key); }
+
+/* The phone: the app's Home in its new look, laid out on assets/screens/home.webp (the owner's phone, 720 x 1603):
+   1 --u is one of that picture's pixels, so every part sits where it does in the app. Its colours are the app's
+   (the app-nl-* tokens) and do not follow the page theme. Text keeps the site's 12px floor
+   (tools/website/test/layout.test.mjs), so on a small screen it is a little larger than the app's. */
+.phone-demo { position: relative; z-index: 2; width: 100%; align-self: end; background: var(--night-deep); padding: 10px; border-radius: 52px; box-shadow: 0 40px 80px -30px color-mix(in srgb, var(--black) 80%, transparent), inset 0 0 0 1px color-mix(in srgb, var(--white) 8%, transparent); }
+.scr {
+  --nl-glass: linear-gradient(180deg, color-mix(in srgb, var(--white) 94%, transparent), color-mix(in srgb, var(--white) 86%, transparent));
+  --nl-rim: color-mix(in srgb, var(--white) 70%, transparent);
+  --nl-shadow: 0 6px 16px -8px color-mix(in srgb, var(--black) 45%, transparent);
+  --nl-text-shadow: 0 1px 3px color-mix(in srgb, var(--black) 55%, transparent);
+  --u: calc(100cqw / 720);
+  container-type: inline-size;
+  position: relative; aspect-ratio: 720 / 1603; border-radius: 42px; overflow: hidden;
+  color: var(--white); font-family: var(--font-text);
+  background: var(--app-nl-art-dark);
+}
+/* The app's Classic scene (a rainforest in rain, CP364), playing where motion is allowed (js/v2.js, data-clip). The app
+   keeps text on it legible with a shadow; the site's contrast rule needs a veil too, strongest behind the headline
+   (the bright sky) and fading where glass covers the scene (tools/website/contrast_pairs.json). */
+.nl-scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.nl-veil { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, color-mix(in srgb, var(--app-nl-art-dark) 58%, transparent) 0%, color-mix(in srgb, var(--app-nl-art-dark) 58%, transparent) 22%, color-mix(in srgb, var(--app-nl-art-dark) 50%, transparent) 30%, color-mix(in srgb, var(--app-nl-art-dark) 50%, transparent) 50%, color-mix(in srgb, var(--app-nl-art-dark) 30%, transparent) 100%); }
+.scr p { margin: 0; }
+.nl-i { width: 100%; height: 100%; display: block; }
+.hot { position: relative; border: 0; padding: 0; margin: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.hot:focus-visible, .scr button:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; box-shadow: 0 0 0 4px var(--app-nl-ink); }
+
+.nl-status { position: absolute; left: calc(66 * var(--u)); right: calc(66 * var(--u)); top: calc(4 * var(--u)); height: calc(36 * var(--u)); display: flex; justify-content: space-between; align-items: center; font: 600 max(12px, calc(22 * var(--u))) var(--font-text); text-shadow: var(--nl-text-shadow); }
+.nl-sys svg { display: block; width: calc(68 * var(--u)); height: calc(24 * var(--u)); }
+
+/* Rook's circle and the brand band with its two buttons */
+.nl-head { position: absolute; left: calc(33 * var(--u)); right: calc(33 * var(--u)); top: calc(65 * var(--u)); height: calc(105 * var(--u)); display: flex; align-items: center; gap: calc(21 * var(--u)); }
+.nl-rook { flex: none; width: calc(82 * var(--u)); height: calc(82 * var(--u)); border-radius: 50%; overflow: hidden; border: calc(4 * var(--u)) solid var(--white); box-shadow: var(--nl-shadow); }
+.nl-rook img { display: block; width: 100%; height: 100%; }
+.nl-band { position: relative; flex: 1; min-width: 0; height: 100%; border-radius: calc(26 * var(--u)); overflow: hidden; border: 1px solid var(--nl-rim); box-shadow: var(--nl-shadow); }
+.nl-band img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left center; opacity: .92; }
+.nl-band-b { position: absolute; inset: 0 calc(12 * var(--u)) 0 auto; display: flex; align-items: center; gap: calc(15 * var(--u)); }
+.nl-circle { width: calc(69 * var(--u)); height: calc(69 * var(--u)); border-radius: 50%; display: grid; place-items: center; color: var(--app-nl-ink); background: color-mix(in srgb, var(--white) 70%, transparent); border: 1px solid var(--nl-rim); box-shadow: var(--nl-shadow); }
+.nl-circle .nl-i { width: calc(30 * var(--u)); height: calc(30 * var(--u)); }
+
+/* Home, as the app draws it; the header and the bottom bar sit above it, so their buttons take their taps */
+.nl-page { position: absolute; inset: 0; }
+.nl-head, .scr-nav, .nl-status { z-index: 2; }
+.nl-headline { position: absolute; left: calc(33 * var(--u)); top: calc(205 * var(--u)); font: 500 max(12px, calc(46 * var(--u)))/1.1 var(--font-display); letter-spacing: -.02em; text-shadow: var(--nl-text-shadow); white-space: nowrap; }
+
+/* Rook walks along the top of the protection card, his boots over its edge (NewHomeScreen.kt: ROOK_OVERLAP) */
+.nl-walkway { position: absolute; left: calc(33 * var(--u)); right: calc(33 * var(--u)); top: calc(268 * var(--u)); height: calc(175 * var(--u)); z-index: 1; pointer-events: none; }
+.nl-walker { position: absolute; left: 0; top: 0; height: 100%; aspect-ratio: 560 / 600; will-change: transform; }
+.nl-walker-still { position: absolute; left: 8.63%; top: 1.73%; width: 82.75%; height: auto; }
+.nl-walker video { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+.nl-walker video.on { opacity: 1; }
+.nl-walker.has-video .nl-walker-still { visibility: hidden; }
+.nl-walker.flip { scale: -1 1; }
+
+.pcard { position: absolute; left: calc(33 * var(--u)); right: calc(33 * var(--u)); top: calc(430 * var(--u)); height: calc(95 * var(--u)); display: flex; align-items: center; gap: calc(22 * var(--u)); padding: 0 calc(10 * var(--u)) 0 calc(28 * var(--u)); background: var(--nl-glass); border: 1px solid var(--nl-rim); box-shadow: var(--nl-shadow); border-radius: calc(48 * var(--u)); color: var(--app-nl-ink); }
+.pshield { flex: none; width: calc(32 * var(--u)); height: calc(32 * var(--u)); color: var(--app-nl-accent); transition: color .3s; }
+.pshield.off { color: var(--app-nl-ink-2); }
+.pcard-text { min-width: 0; flex: 1; }
+.pcard-t { font: 600 max(12px, calc(25 * var(--u)))/1.2 var(--font-display); color: var(--app-nl-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pcard-s { font-size: max(12px, calc(19 * var(--u))); line-height: 1.3; color: var(--app-nl-ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tgl { flex: none; width: calc(90 * var(--u)); height: calc(52 * var(--u)); border-radius: calc(26 * var(--u)); border: 0; background: var(--app-nl-accent); position: relative; cursor: pointer; padding: 0; transition: background .2s; }
+.tgl::after { content: ""; position: absolute; top: calc(4 * var(--u)); left: calc(42 * var(--u)); width: calc(44 * var(--u)); height: calc(44 * var(--u)); border-radius: 50%; background: var(--white); box-shadow: 0 1px 3px color-mix(in srgb, var(--black) 35%, transparent); transition: left .2s; }
+.tgl[aria-checked="false"] { background: var(--app-nl-switch-off); }
+.tgl[aria-checked="false"]::after { left: calc(4 * var(--u)); }
+
+/* All seven shortcuts in one row, as in the app; a label may reach past its tile into the gap. */
+.nl-tiles { position: absolute; left: calc(33 * var(--u)); right: calc(33 * var(--u)); top: calc(552 * var(--u)); display: flex; justify-content: space-between; gap: 3px; }
+.nl-tile { flex: none; display: grid; justify-items: center; gap: calc(8 * var(--u)); }
+.nl-tile-box { width: calc(84 * var(--u)); aspect-ratio: 1; border-radius: calc(22 * var(--u)); display: grid; place-items: center; background: var(--nl-glass); border: 1px solid var(--nl-rim); color: var(--app-nl-accent); box-shadow: var(--nl-shadow); }
+.nl-tile-box .nl-i { width: calc(32 * var(--u)); height: calc(32 * var(--u)); }
+.nl-tile[data-tile="popups"] .nl-tile-box, .nl-tile[data-tile="trackers"] .nl-tile-box, .nl-tile[data-tile="ads"] .nl-tile-box, .nl-tile[data-tile="security"] .nl-tile-box, .nl-tile[data-tile="dns"] .nl-tile-box { color: var(--app-nl-ink-2); }
+.nl-tile.on .nl-tile-box { background: var(--app-nl-accent); border-color: transparent; color: var(--white); }
+/* A protection that is off shows its icon struck through, as in the app; Lists and Firewall are pages, not switches. */
+.nl-tile-box { position: relative; }
+.nl-tile:not(.on):not([data-tile="lists"]):not([data-tile="firewall"]) .nl-tile-box::after { content: ""; position: absolute; left: 50%; top: 50%; width: calc(42 * var(--u)); height: calc(3 * var(--u)); min-height: 1.5px; border-radius: 2px; background: currentColor; transform: translate(-50%, -50%) rotate(-45deg); }
+.nl-tile-l { font-size: max(12px, calc(19 * var(--u))); line-height: 1.2; text-shadow: var(--nl-text-shadow); white-space: nowrap; letter-spacing: -.02em; }
+.nl-tile[aria-pressed="true"] .nl-tile-box { box-shadow: 0 0 0 2px var(--white); }
+
+.seg { position: absolute; left: calc(33 * var(--u)); right: calc(33 * var(--u)); top: calc(695 * var(--u)); height: calc(70 * var(--u)); display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(13 * var(--u)); }
+.seg button, .prow button { border: 1px solid var(--nl-rim); background: var(--nl-glass); color: var(--app-nl-ink); font: 600 max(12px, calc(22 * var(--u))) var(--font-text); padding: 0; border-radius: 999px; cursor: pointer; box-shadow: var(--nl-shadow); }
+.seg button[aria-pressed="true"] { background: var(--app-nl-accent); border-color: transparent; color: var(--white); }
+.prow { position: absolute; left: calc(33 * var(--u)); right: calc(33 * var(--u)); top: calc(782 * var(--u)); height: calc(63 * var(--u)); display: grid; grid-template-columns: calc(82 * var(--u)) repeat(3, 1fr); gap: calc(14 * var(--u)); align-items: stretch; font: 600 max(12px, calc(22 * var(--u))) var(--font-text); }
+.prow > span { align-self: center; text-shadow: var(--nl-text-shadow); }
+.prow button { font-weight: 500; }
+.prow button[aria-pressed="true"] { background: var(--app-nl-amber); border-color: transparent; color: var(--white); font-weight: 600; }
+
+/* The row of cards above the bottom bar; it scrolls sideways, as in the app, with the next card peeking in. */
+.nl-cards { position: absolute; left: 0; right: 0; top: calc(1253 * var(--u)); display: flex; gap: calc(17 * var(--u)); padding: 0 calc(33 * var(--u)); overflow-x: auto; scrollbar-width: none; scroll-padding: 0 calc(33 * var(--u)); }
+.nl-cards::-webkit-scrollbar { display: none; }
+.nl-card { flex: none; width: max-content; min-width: calc(188 * var(--u)); height: calc(160 * var(--u)); padding: calc(17 * var(--u)) calc(19 * var(--u)) calc(14 * var(--u)); display: flex; flex-direction: column; align-items: flex-start; text-align: left; border-radius: calc(32 * var(--u)); background: var(--nl-glass); border: 1px solid var(--nl-rim); box-shadow: var(--nl-shadow); color: var(--app-nl-ink); }
+.nl-card-i { width: calc(44 * var(--u)); height: calc(44 * var(--u)); border-radius: 50%; display: grid; place-items: center; padding: calc(12 * var(--u)); margin-bottom: auto; }
+.nl-card-i.teal { background: color-mix(in srgb, var(--app-nl-accent) 14%, var(--white)); color: var(--app-nl-accent); }
+.nl-card-i.navy { background: color-mix(in srgb, var(--app-nl-ink) 10%, var(--white)); color: var(--app-nl-ink); }
+.nl-card-i.amber { background: color-mix(in srgb, var(--app-nl-amber) 16%, var(--white)); color: var(--app-nl-amber); }
+.nl-card-i.grey { background: var(--app-nl-switch-off); color: var(--app-nl-ink-2); }
+.nl-card-v { white-space: nowrap; margin-top: calc(14 * var(--u)); font: 700 max(12px, calc(34 * var(--u)))/1.1 var(--font-display); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.nl-card-l { margin-top: calc(4 * var(--u)); font-size: max(12px, calc(19 * var(--u))); line-height: 1.2; color: var(--app-nl-ink-2); white-space: nowrap; }
+.nl-card[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--app-nl-accent); }
+
+/* Recent activity, opened from the bell or the "blocked today" card, as in the app */
+.nl-activity { position: absolute; left: 0; right: 0; top: calc(190 * var(--u)); bottom: calc(185 * var(--u)); display: flex; flex-direction: column; gap: calc(18 * var(--u)); padding: 0 calc(33 * var(--u)); }
+.nl-activity[hidden] { display: none; }
+.nl-act-head { display: flex; align-items: center; gap: calc(18 * var(--u)); text-shadow: var(--nl-text-shadow); }
+.nl-back { flex: none; width: calc(69 * var(--u)); height: calc(69 * var(--u)); padding: calc(18 * var(--u)); border-radius: 50%; border: 1px solid var(--nl-rim); background: var(--nl-glass); color: var(--app-nl-ink); cursor: pointer; box-shadow: var(--nl-shadow); }
+.nl-act-t { font: 600 max(12px, calc(40 * var(--u)))/1.1 var(--font-display); letter-spacing: -.02em; }
+.nl-act-s { font-size: max(12px, calc(19 * var(--u))); opacity: .9; }
+.ptoday { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; background: var(--nl-glass); border: 1px solid var(--nl-rim); box-shadow: var(--nl-shadow); border-radius: calc(36 * var(--u)); color: var(--app-nl-ink); }
+.ptoday::-webkit-scrollbar { display: none; }
+.ptoday-h { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 14px 6px; border-bottom: 1px solid color-mix(in srgb, var(--app-nl-ink) 10%, transparent); }
+.ptoday-h b { font: 600 14px var(--font-display); color: var(--app-nl-ink); }
+.ptoday-h span { font-size: 12px; color: var(--app-nl-ink-2); font-variant-numeric: tabular-nums; }
+#feed { list-style: none; margin: 0; padding: 0; }
+.req { border-bottom: 1px solid color-mix(in srgb, var(--app-nl-ink) 8%, transparent); }
+.req:last-child { border-bottom: 0; }
+.req.new { animation: drop .45s cubic-bezier(.2,.8,.2,1); }
+@keyframes drop { from { transform: translateY(-8px); background: color-mix(in srgb, var(--app-nl-accent) 14%, transparent); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .req.new { animation: none; } }
+.req-btn { all: unset; box-sizing: border-box; display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 9px; align-items: center; width: 100%; padding: 8px 12px; cursor: pointer; }
+.req-btn:focus-visible { outline: 2px solid var(--app-nl-accent); outline-offset: -2px; }
+.req-btn img { width: 26px; height: 26px; border-radius: 50%; }
+.dom { display: block; font-size: 13px; color: var(--app-nl-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.why { display: block; font-size: 12px; }
+.why.b { color: var(--app-nl-red); }
+.why.a { color: var(--app-nl-green); }
+.when { font-size: 12px; color: var(--app-nl-ink-2); text-align: right; font-variant-numeric: tabular-nums; line-height: 1.35; }
+.detail { padding: 0 12px 10px 47px; font-size: 12px; color: var(--app-nl-ink-2); display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.detail b { color: var(--app-nl-ink); font-weight: 600; }
+.allow { background: var(--app-nl-accent); border: 0; color: var(--white); border-radius: 999px; padding: 5px 12px; font: 600 12px var(--font-text); cursor: pointer; }
+
+/* The glass bottom bar with the dark Home button, and Android's gesture line under it */
+.scr-nav { position: absolute; left: calc(33 * var(--u)); right: calc(33 * var(--u)); top: calc(1430 * var(--u)); height: calc(108 * var(--u)); display: flex; justify-content: space-around; align-items: center; padding: 0 calc(20 * var(--u)); border-radius: 999px; background: var(--nl-glass); border: 1px solid var(--nl-rim); box-shadow: var(--nl-shadow); }
+/* Each place's icon over its name, as the app's bar (CP486, owner 2026-10-03); the current place's circle is dark. */
+.nl-nav-b { display: flex; flex-direction: column; align-items: center; gap: calc(4 * var(--u)); width: calc(124 * var(--u)); border-radius: calc(24 * var(--u)); color: var(--app-nl-ink-2); }
+.nl-nav-c { display: block; width: calc(64 * var(--u)); height: calc(64 * var(--u)); padding: calc(19 * var(--u)); border-radius: 50%; }
+.nl-nav-b.nl-home .nl-nav-c { background: var(--app-nl-ink); color: var(--white); }
+.nl-nav-l { font: 500 max(12px, calc(20 * var(--u)))/1 var(--font-text); white-space: nowrap; }
+.nl-nav-b.nl-home .nl-nav-l { font-weight: 600; color: var(--app-nl-ink); }
+.nl-nav-b[aria-pressed="true"] .nl-nav-c { box-shadow: 0 0 0 2px var(--app-nl-accent); }
+.nl-indicator { position: absolute; left: calc(273 * var(--u)); width: calc(174 * var(--u)); top: calc(1579 * var(--u)); height: calc(8 * var(--u)); border-radius: 999px; background: var(--white); opacity: .9; }
+
+/* On a phone-sized screen the 12px labels are wider than the app's, so the row uses a little of the side margin. */
+@container (max-width: 350px) {
+  .nl-tiles { left: calc(16 * var(--u)); right: calc(16 * var(--u)); }
+  .nl-tile-l, .nl-nav-l { letter-spacing: -.03em; }
+}
+/* Seven labels at the 12px floor don't fit a very small screen: there the row scrolls, as 118dp cards do. */
+@container (max-width: 300px) {
+  .nl-tiles { right: 0; justify-content: flex-start; gap: calc(11 * var(--u)); overflow-x: auto; scrollbar-width: none; padding-right: calc(33 * var(--u)); }
+  .nl-tiles::-webkit-scrollbar { display: none; }
+  /* Five bar names at 12px overrun their buttons here ("Statistics" alone is wider): the bar shows its icons, and
+     each button keeps its name as its aria-label. */
+  .nl-nav-l { display: none; }
+}
+
+@media (max-width: 980px) {
+  .stage { grid-template-columns: minmax(0, 1fr); justify-items: center; padding: 24px 16px 32px; gap: 18px; }
+  .coach { width: 100%; max-width: 520px; display: flex; align-items: flex-end; gap: 12px; container-type: normal; }
+  .coach-fig { position: relative; height: auto; width: 128px; flex: none; order: 2; }
+  .coach-bubble { position: relative; top: auto; width: auto; flex: 1; order: 1; }
+  .coach-bubble::after { top: auto; bottom: 34px; }
+  .phone-demo { width: min(380px, 100%); }
+}
+@media (max-width: 560px) { .stage { border-radius: 22px; padding-left: 8px; padding-right: 8px; } .coach-fig { width: 96px; } .cb-t { font-size: 16px; } .cb-b { font-size: 14px; } }
+
+/* ---------- From css/home.css: Rook animated, on video, and the hero guide ---------- */
+/* Rook, animated. The raised forearm is its own layer, so the wave swings from the elbow. */
+.rk-fig { position: relative; display: block; aspect-ratio: 4 / 5; }
+.rk-fig img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rk-arm { transform-origin: 72.6% 35%; }
+.waving .rk-arm { animation: rk-wave 1.7s ease-in-out; }
+@keyframes rk-wave { 0%, 100% { transform: none; } 15% { transform: rotate(13deg); } 35% { transform: rotate(-10deg); } 55% { transform: rotate(13deg); } 75% { transform: rotate(-9deg); } }
+.bubble { position: absolute; background: var(--white); color: var(--bubble-ink); border-radius: 18px; padding: 12px 16px; font: 500 15px/1.4 var(--font-text); box-shadow: 0 14px 30px -12px color-mix(in srgb, var(--night-deep) 50%, transparent); text-align: left; transition: opacity .3s, transform .3s; }
+.bubble b { font-family: var(--font-display); font-weight: 700; }
+.bubble[data-hide="true"] { opacity: 0; transform: translateY(6px) scale(.96); }
+
+/* Rook on video. Every clip shares one 560x600 frame with Rook in the same place, so the page can switch
+   between wave, turn, walk and turn-back without a jump. Where transparent WebM doesn't play (Safari, iOS)
+   or motion is reduced, the still art stays, with the CSS arm wave and a fade between sides. */
+.rk-media { position: relative; display: block; aspect-ratio: 560 / 600; }
+.rk-media > .rk-fig { position: absolute; left: 8.63%; top: 1.73%; width: 82.75%; }
+.rk-media video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; }
+.rk-media video.on { opacity: 1; }
+.rk-media.has-video > .rk-fig { visibility: hidden; }
+
+/* Hero guide: walks in from the right behind the headline, talks, and changes sides by walking */
+.hero { overflow-x: clip; }
+.hero .wrap { position: relative; }
+.hero .wrap > :not(.guide) { position: relative; z-index: 2; }
+.guide { position: absolute; left: 0; right: 0; top: 118px; height: 314px; z-index: 1; pointer-events: none; }
+.rk-walk { position: absolute; left: 0; top: 0; width: 293px; pointer-events: auto; cursor: pointer; will-change: transform; transition: opacity .5s; }
+.guide.hidden .rk-walk { opacity: 0; }
+.guide .bubble { bottom: calc(100% + 4px); left: 16%; width: 250px; }
+.guide[data-side="right"] .bubble { left: auto; right: 16%; }
+.guide .bubble::before { content: ""; position: absolute; left: 70px; bottom: -7px; width: 16px; height: 16px; background: var(--white); transform: rotate(45deg); border-radius: 3px; }
+.guide[data-side="right"] .bubble::before { left: auto; right: 70px; }
+.guide.moving .bubble { opacity: 0; }
+.guide.still .rk-body { animation: mh-bob 5.5s ease-in-out infinite; }
+@keyframes mh-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.bubble-dots { display: flex; gap: 5px; margin-top: 8px; }
+.bubble-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--bubble-dot); }
+.bubble-dots i.on { background: var(--teal); }
+@media (max-width: 1180px) { .guide { height: 268px; top: 150px; } .rk-walk { width: 250px; } .guide .bubble { width: 214px; font-size: 14px; } }
+@media (max-width: 1000px) {
+  .guide { position: relative; top: auto; height: 204px; margin-top: 118px; }
+  .rk-walk { width: 190px; }
+  .guide .bubble { width: min(250px, 70vw); left: 10%; }
+  .guide[data-side="right"] .bubble { right: 10%; }
+}
+
+/* ---------- From css/home.css: the FAQ avatar and the closing Rook ---------- */
+/* FAQ avatar says hello */
+.faq-av { position: relative; width: 84px; margin-bottom: 18px; }
+.faq-av img { display: block; width: 84px; height: 84px; }
+.faq-av::after { content: ""; position: absolute; inset: 6%; border-radius: 50%; background: linear-gradient(110deg, transparent 35%, var(--avatar-sheen) 50%, transparent 65%) -120% 0 / 250% 100% no-repeat; pointer-events: none; }
+.faq-av.hello img { animation: rk-hello 1.4s ease-in-out; }
+.faq-av.hello::after { animation: rk-sheen 1.4s ease-in-out .2s; }
+@keyframes rk-hello { 0%, 100% { transform: none; } 20% { transform: rotate(-10deg) scale(1.06); } 45% { transform: rotate(8deg) scale(1.06); } 70% { transform: rotate(-4deg); } }
+@keyframes rk-sheen { from { background-position: -120% 0; } to { background-position: 220% 0; } }
+.faq-av .bubble { left: 96px; top: 6px; width: max-content; max-width: 220px; font-size: 14px; padding: 8px 12px; }
+
+/* Closing Rook waves goodbye */
+.closing-rook { position: relative; width: 300px; margin: 30px auto 0; }
+.closing-rook .bubble { left: 250px; top: 30px; width: max-content; max-width: 200px; }
+@media (max-width: 560px) { .closing-rook { width: 220px; } .closing-rook .bubble { left: auto; right: 170px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .guide.still .rk-body, .waving .rk-arm, .faq-av.hello img, .faq-av.hello::after,
+  .coach-fig.presenting .rk-arm, .coach-fig.presenting .rk-fig, .coach-bubble.pop { animation: none; }
+}
+
+/* ---------- v2: Rook's walkway is the full width of the screen, so his spots are in the margins
+   beside v2's centred headline rather than over it ---------- */
+@media (min-width: 1001px) {
+  .hero .guide { left: calc(50% - 50vw + 12px); right: calc(50% - 50vw + 12px); top: 96px; }
+}
+@media (min-width: 1001px) and (max-width: 1440px) { .hero .rk-walk { width: 196px; } .guide .bubble { width: 214px; font-size: 14px; } }
+
+/* ---------- v2: the demo sits on a light page ---------- */
+.v2-demo .demo-head .eyebrow { color: var(--teal-ink); }
+.v2-demo .demo-head h3 { color: var(--ink); font-family: var(--font-display); letter-spacing: -0.02em; margin: 0; }
+.v2-demo .demo-head h3 .em { color: var(--teal-ink); }
+.v2-demo .replay { background: var(--surface-2); color: var(--ink); border-color: var(--line); }
+.v2-demo .replay:hover { background: var(--line); }
+.v2-demo .phone-demo { border-radius: 54px; padding: 8px; box-shadow: 0 0 0 1.5px var(--device-rim-lo), 0 0 0 3px var(--device-rim-hi), 0 0 0 4px var(--device-rim-lo), var(--shadow-device); }
+.v2-demo .scr { border-radius: 46px; }
+.v2-demo .hot::before { content: ""; position: absolute; inset: -5px; }
+.v2-demo .phone-demo { max-width: 100%; }
+@media (max-width: 560px) {
+  .v2-demo .phone-demo { padding: 6px; border-radius: 48px; } .v2-demo .scr { border-radius: 42px; }
+  .v2-demo > .wrap { padding-left: 0; padding-right: 0; }
+  .v2-demo .demo-head, .v2-demo .demo-cap { padding-left: 16px; padding-right: 16px; }
+}
+@media (max-width: 340px) {
+  .v2-demo .req-btn { grid-template-columns: 22px minmax(0, 1fr) auto; gap: 6px; padding: 8px; }
+  .v2-demo .req-btn img { width: 22px; height: 22px; }
+}
+@media (max-width: 400px) {
+  .guide .bubble, .guide[data-side="right"] .bubble { left: 0; right: auto; width: min(230px, calc(100vw - 48px)); }
+  .faq-av .bubble { display: none; }
+  .closing-rook .bubble { max-width: calc(100vw - 190px); }
+}
+.v2-faq-head { display: flex; flex-direction: column; align-items: center; }
+.v2-faq-head .faq-av { margin-bottom: 10px; }
+.hero .guide + * { position: relative; }
+
+/* ---------- v2: Rook's shadow ----------
+   No surface under him (owner, 2026-09-28), only his shadow: it sits under his feet (the clips' figure
+   stands on 98% of the frame's height) and travels with him. */
+/* The home hero: the walkway is exactly as tall as he is. */
+@media (min-width: 1441px) { .hero .guide { height: 314px; } }
+@media (min-width: 1001px) and (max-width: 1440px) { .hero .guide { height: 210px; top: 150px; } }
+@media (max-width: 1000px) { .hero .guide { height: calc(190px * 600 / 560); } }
+/* His shadow: under his feet, travelling with him, breathing with his idle bob. */
+.rk-walk::before, .mascot-slot::after, .closing-rook::after, .coach-fig::after { content: ""; position: absolute; left: 24%; right: 24%; bottom: -1%; height: 7%;
+  border-radius: 50%; background: radial-gradient(closest-side, var(--ground-shadow), transparent); pointer-events: none; }
+.rk-walk .rk-body { position: relative; display: block; }
+.mascot-slot, .closing-rook, .coach-fig { isolation: isolate; }
+.mascot-slot::after, .closing-rook::after, .coach-fig::after { z-index: -1; }
+.guide.still .rk-walk::before { animation: rk-shadow 5.5s ease-in-out infinite; }
+@keyframes rk-shadow { 0%, 100% { transform: none; opacity: 1; } 50% { transform: scaleX(0.9); opacity: 0.8; } }
+.mascot-slot { position: relative; }
+.mascot-slot::after { bottom: 1%; }
+.mascot-slot.has-video::after { display: none; }
+.mascot-slot .rk-walk::before { bottom: 0; }
+.coach-fig::after { bottom: 0; }
+@media (prefers-reduced-motion: reduce) { .guide.still .rk-walk::before { animation: none; } }
+
+/* ---------- From css/mascot-hero.css: Rook walking into a page's hero (js/rook.js) ---------- */
+.mascot-slot { width: 190px; flex: 0 0 auto; }
+.mascot-slot:empty { display: none; }
+.mascot-slot img { display: block; width: 100%; height: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .mascot-slot img { animation: mh-bob 5.5s ease-in-out infinite; }
+}
+/* v2's heroes are centred: Rook stands at the right of the hero, clear of the headline. */
+.page-hero .wrap { position: relative; }
+.page-hero .mascot-slot { position: absolute; right: 0; top: 0; z-index: 1; }
+.page-hero .wrap > :not(.mascot-slot) { position: relative; z-index: 2; }
+@media (max-width: 1180px) { .page-hero .mascot-slot { width: 150px; } }
+/* Narrow screens: a small Rook above the headline, never beside it. */
+@media (max-width: 900px) {
+  .page-hero .mascot-slot { position: relative; right: auto; top: auto; width: 108px; margin: 0 auto 10px; }
+}
+.page-hero.rk-live { position: relative; overflow: hidden; }
+.mascot-slot.rk-on { position: relative; z-index: 1; cursor: pointer; }
+.page-hero .mascot-slot.rk-on { position: absolute; }
+@media (max-width: 900px) { .page-hero .mascot-slot.rk-on { position: relative; } }
+.mascot-slot.rk-on.has-video > img { visibility: hidden; animation: none; }
+/* The clips' 560x600 canvas, sized and offset so the figure lands exactly on the still pose */
+.mascot-slot .rk-walk { position: absolute; left: -10.42%; top: -1.79%; width: 120.85%; aspect-ratio: 560 / 600; will-change: transform; }
+.mascot-slot .rk-walk video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
+.mascot-slot .rk-walk video.v-present { width: 93.27%; }
+.mascot-slot .rk-walk video.on { opacity: 1; }
+
+/* Rook in the footer, standing on its bottom edge at the right */
+.site-footer.rk-foot-on { position: relative; overflow: hidden; }
+.site-footer.rk-foot-on .v2-foot-cols > div, .site-footer.rk-foot-on .fine { position: relative; z-index: 2; }
+.site-footer .rk-foot { position: absolute; z-index: 1; bottom: 0; width: 130px; right: max(20px, calc((100% - 1280px) / 2 + 20px)); }
+@media (max-width: 900px) {
+  .site-footer.rk-foot-on .wrap-wide { padding-bottom: 150px; }
+  .site-footer .rk-foot { width: 104px; }
+}

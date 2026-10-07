@@ -1,0 +1,110 @@
+/* The account area in the v2 design (website/v2/: log in, create account, the password pages, verify email,
+   device approval and the account page). css/account.css still draws the forms and the account page as on
+   the old site; this sheet comes after it and does two things: it gives them v2's look (light, paper, pill
+   buttons, the Mac-style bar), and it keeps v2's own rules of the same names (.status, .field, .hint,
+   .check) from reaching into them. Every colour is a token (css/tokens.css). */
+
+/* ---------- What account.css used to take from the old site's styles.css ---------- */
+.preview-banner { background: var(--pending-bg); color: var(--pending); font-size: 14px; font-weight: 500; text-align: center; padding: 8px 16px; }
+html:not([data-qw-mode="live"]) [data-when="live"],
+html[data-qw-mode="live"] [data-when="preview"] { display: none !important; }
+html[data-qw-checking] [data-qw-wait] { visibility: hidden; animation: qw-show 0s linear 6s forwards; }
+@keyframes qw-show { to { visibility: visible; } }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 11px 22px; border-radius: var(--radius-pill); font-family: var(--font-text); font-weight: 600; font-size: 16px; text-decoration: none; transition: filter 150ms ease, transform 100ms ease-out, background-color 150ms ease; }
+button.button { font-family: var(--font-text); }
+.button:hover { text-decoration: none; }
+.button:active { transform: scale(0.97); }
+.button.solid, .button.primary { background: var(--navy); color: var(--on-navy); }
+.button.outline, .button.ghost, button.button.outline { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.button.small { min-height: 32px; padding: 6px 14px; font-size: 14px; border-radius: var(--radius-pill); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; border-radius: var(--radius-pill); padding: 3px 10px; white-space: nowrap; }
+.chip.pending { color: var(--pending); background: var(--pending-bg); }
+
+/* ---------- v2's own rules of the same names stay out (low specificity, so account.css's still win) ---------- */
+:where(.authpage, .acct) .status { display: block; gap: 0; font-weight: 400; letter-spacing: 0; }
+:where(.authpage, .acct) .status::before { content: none; }
+:where(.authpage, .acct) .field { max-width: none; margin: 0; }
+:where(.authpage, .acct) .field input { min-height: 0; }
+:where(.authpage, .acct) .field input:focus { outline: none; }
+:where(.authpage, .acct) .hint { text-align: left; margin: 0; max-width: none; }
+:where(.authpage, .acct) .check { max-width: none; margin: 0; }
+:where(.authpage, .acct) .eyebrow { margin: 0; }
+/* Links beside text or each other get room to be tapped: at least 24px tall. */
+.authpage .field .row a, .auth-form .alt a { display: inline-block; padding-block: 2px; }
+:where(.authpage, .acct) input[type="email"], :where(.authpage, .acct) input[type="password"], :where(.authpage, .acct) input[type="text"] { border-radius: 12px; }
+
+/* ---------- The sign-in pages: one card on the paper, the art half light, Rook presenting the form ---------- */
+.authpage main.auth2 { overflow: visible; padding-block: 44px 88px; }
+.authpage main.auth2::before, .authpage main.auth2::after { content: none; }
+.auth-shell { border-radius: var(--radius-tile); border: 1px solid var(--glass-edge); box-shadow: var(--shadow-tile); background: var(--surface); }
+.auth-form h1 { font-family: var(--font-display); letter-spacing: -0.03em; }
+.auth-art { color: var(--ink); background: linear-gradient(180deg, var(--wash), var(--surface)); border-left: 1px solid var(--glass-edge); }
+.auth-art .eyebrow { color: var(--teal-ink); }
+.auth-art h2 { color: var(--ink); }
+.auth-art p { color: var(--ink-2); }
+.auth-art p a { color: var(--teal-ink); }
+.artwall span { background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-3); }
+.artwall span.gone { border-color: var(--soft-line); color: var(--ink-3); }
+.art-keys li { color: var(--ink); }
+.art-keys li svg.i { color: var(--teal-ink); }
+.art-keys li.no { color: var(--ink-2); }
+.art-keys li.no svg.i { color: var(--blocked); }
+.art-caption { color: var(--ink-3); }
+.auth-rook { position: relative; align-self: flex-end; width: 124px; margin-top: auto; isolation: isolate; }
+.auth-rook img { display: block; width: 100%; height: auto; }
+.auth-rook::after { content: ""; position: absolute; z-index: -1; left: 14%; right: 6%; bottom: -6px; height: 16px; border-radius: 50%; background: radial-gradient(closest-side, var(--ground-shadow), transparent); }
+@media (max-width: 900px) { .auth-art { border-left: 0; border-top: 1px solid var(--glass-edge); } .auth-rook { width: 104px; } }
+
+/* The art half as one picture with one glass card (owner, 2026-09-28: "improve this login page design"): the
+   glass-wall photo, the page's label in a glass pill, Rook pointing at the form, and a card with the heading,
+   what this touches as chips (kept: lit; never kept: struck through) and one closing line. */
+.auth-art.art2 { position: relative; padding: 0; gap: 0; min-height: 600px; justify-content: flex-end; overflow: hidden; background: var(--wash); isolation: isolate; }
+.art2-photo { position: absolute; left: 0; right: 0; top: -20%; z-index: -2; width: 100%; height: 118%; object-fit: cover; object-position: 50% 58%; }
+.auth-art.art2::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 40%, var(--wash-veil) 100%); pointer-events: none; }
+.art2 .art2-pill { position: absolute; top: 22px; left: 22px; margin: 0; padding: 8px 14px; border-radius: var(--radius-pill); background: var(--glass); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid var(--glass-edge); color: var(--teal-ink); font-size: 14px; }
+.art2 .auth-rook { position: absolute; top: 18px; right: 18px; width: 112px; margin: 0; align-self: auto; }
+.art2-card { margin: 20px; padding: 22px 22px 20px; border-radius: var(--radius-tile); background: var(--glass); -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%); border: 1px solid var(--glass-edge); box-shadow: var(--shadow-tile); display: flex; flex-direction: column; gap: 14px; }
+.art2-card h2 { margin: 0; font-family: var(--font-display); font-size: 24px; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); max-width: 22ch; }
+.art2-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.art2-chips li { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 13px 0 10px; border-radius: var(--radius-pill); font-size: 14px; font-weight: 600; }
+.art2-chips svg.i { width: 16px; height: 16px; }
+.art2-chips .kept { background: var(--teal-ink); color: var(--white); }
+.art2-chips .never { background: var(--surface); color: var(--ink-3); border: 1.5px dashed var(--soft-line); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.art2-chips .never svg.i { color: var(--blocked); }
+.art2-card p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); max-width: 44ch; }
+.art2-card p a { color: var(--teal-ink); }
+@media (max-width: 900px) { .auth-art.art2 { min-height: 460px; border-top: 0; } .art2 .auth-rook { width: 92px; } }
+@media (max-width: 420px) { .art2-card { margin: 14px; padding: 18px; } .art2-card h2 { font-size: 21px; } }
+@media (prefers-reduced-transparency: reduce) { .art2 .art2-pill, .art2-card { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+
+/* Log in shows as the page you're on, like a page's name in the menu bar. */
+
+
+/* ---------- The account page ---------- */
+/* The account chip and Sign out, in the menu bar where Log in and Get notified are on other pages. */
+.v2-nav .acct-chip { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none; border-radius: var(--radius-pill); padding: 3px 10px 3px 3px; }
+.v2-nav .acct-chip:hover { background: var(--glass-edge); text-decoration: none; }
+.v2-nav .acct-chip .avatar { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--on-navy); background: var(--navy); }
+.v2-nav .acct-chip .who-label { font-size: 13.5px; max-width: 22ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.v2-nav .signout-link { font-size: 13.5px; color: var(--ink-2); padding: 3px 10px; border-radius: 6px; }
+.v2-nav .signout-link:hover { color: var(--ink); background: var(--glass-edge); text-decoration: none; }
+@media (max-width: 900px) { .v2-nav .acct-chip .who-label { display: none; } .v2-nav .acct-chip { padding-right: 3px; } }
+.v2-nav .acct-chip .who-label, .v2-nav .signout-link { font-size: 15px; }
+/* A narrow computer window (or a phone on its side) keeps the avatar and drops the address, so the bar fits. */
+@media (max-width: 1100px) { .v2-nav .acct-chip .who-label { display: none; } .v2-nav .acct-chip { padding-right: 3px; } }
+
+/* The section bar: a second glass bar under the menu bar, as on the product pages. */
+.acct .secbar { top: 72px; background: var(--glass); -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--glass-edge); box-shadow: none; }
+@media (min-width: 901px) { html .acct .secbar { top: 88px; } }
+.acct .secbar-fade { display: none; }
+.acct .secbar-tabs [role="tab"] { font-family: var(--font-text); font-size: 14px; color: var(--ink-2); border-radius: var(--radius-pill); padding: 7px 14px; }
+.acct .secbar-tabs [role="tab"]:hover { color: var(--ink); background: var(--surface-2); }
+.acct .secbar-tabs [role="tab"][aria-selected="true"] { color: var(--surface); background: var(--ink); }
+.acct .secbar-tabs [role="tab"] .count { color: inherit; }
+/* js/account.js scrolls a chosen tab's panel to #top less the section bar; the marker sits the menu bar's
+   height higher, so the panel lands under both bars. The receipt sticks below them too. */
+.acct .top-mark { position: relative; top: -72px; height: 0; }
+@media (min-width: 901px) { .acct .top-mark { top: -88px; } .acct .receipt-col { top: 160px; } }
+
+@media (prefers-reduced-motion: reduce) { .button:active { transform: none; } }
+@media (prefers-reduced-transparency: reduce) { .acct .secbar { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; } }

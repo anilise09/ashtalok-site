@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Final testing on real phones · AshtaLok blog</title>
+<meta name="description" content="A development update: what we're testing on a Samsung Galaxy, an ASUS ROG Phone and Android 14 to 17 emulators before AshtaLok is released.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AshtaLok">
+<meta property="og:title" content="Final testing on real phones · AshtaLok blog">
+<meta property="og:description" content="A development update: what we're testing on a Samsung Galaxy, an ASUS ROG Phone and Android 14 to 17 emulators before AshtaLok is released.">
+<meta property="og:image" content="https://ashtalok.ashtadeep.com/assets/brand/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The AshtaLok logo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/v2.css">
+<link rel="stylesheet" href="css/v2-mascot.css">
+<script src="js/v2.js"></script>
+<script src="js/rook.js" defer></script>
+</head>
+<body>
+<a class="v2-skip" href="#main">Skip to content</a>
+<header class="v2-nav">
+  <nav class="v2-nav-in" aria-label="Main">
+    <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+    <ul class="v2-links"><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone</a></li><li><a href="passwords.html">Passwords</a></li><li><a href="help.html">Help</a></li></ul>
+    <div class="v2-nav-cta"><time class="v2-clock" aria-hidden="true"></time></div>
+    <details class="v2-menu">
+      <summary aria-label="Menu"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></summary>
+      <div class="v2-menu-panel"><a href="android.html">Android</a><a href="browser-extension.html">Extension</a><a href="desktop.html">Windows</a><a href="iphone.html">iPhone</a><a href="passwords.html">Passwords</a><a href="help.html">Help</a><a href="blog.html">Blog</a></div>
+    </details>
+  </nav>
+</header>
+<main id="main">
+<article aria-labelledby="post-title">
+  <section class="hero page-hero" style="padding-bottom:24px">
+    <div class="wrap" style="max-width:780px;text-align:left">
+    <div class="mascot-slot" data-pose="neutral"><img src="assets/mascot/rook.webp" alt="" width="200" height="250"></div>
+      <p class="eyebrow"><a href="blog.html">Blog</a> · Development update</p>
+      <h1 class="d2" id="post-title">Final testing on real phones</h1>
+      <p class="post-meta"><time datetime="2026-09-22">22 September 2026</time> · The AshtaLok team</p>
+    </div>
+  </section>
+  <section class="sec tight" style="padding-top:8px"><div class="wrap"><div class="post">
+          <p class="lead" style="margin:0 0 8px">AshtaLok for Android is in its last round of testing. This is where it stands, what we're checking, and why there still isn't a release date.</p>
+
+          <h2>Where we're testing</h2>
+          <ul>
+            <li><b>A Samsung Galaxy phone.</b> Samsung adds its own battery management and settings on top of Android, which is exactly the kind of thing that can stop a background app without warning.</li>
+            <li><b>An ASUS ROG Phone.</b> A gaming phone with its own performance modes, and a good test of whether AshtaLok stays out of the way while games run.</li>
+            <li><b>Android 14, 15, 16 and 17 emulators.</b> These let us check each of those versions, at different screen sizes and font sizes, and repeat the same steps many times.</li>
+          </ul>
+          <p>Emulators are useful, but they aren't phones. They don't have a phone maker's battery rules, a real mobile network or a user switching apps. That's why a release waits for the real devices.</p>
+
+          <h2>What we're checking</h2>
+          <h3>Staying on</h3>
+          <p>A blocker that quietly stops is worse than none, because you think you're protected. We restart the phones, move between Wi-Fi and mobile data, leave them overnight, and check that protection is still running afterwards, or that the app says clearly when it isn't.</p>
+
+          <h3>Setting up</h3>
+          <p>The first minutes matter most. We go through the VPN permission request, picking a protection level and choosing an encrypted DNS provider on each device, and make sure every screen explains what it's asking for and why.</p>
+
+          <h3>Encrypted DNS on real networks</h3>
+          <p>Home Wi-Fi, mobile data, and networks with sign-in pages all behave differently. We're checking that lookups stay encrypted, that AshtaLok never falls back to plain DNS by itself, and that the opt-in warning is shown when someone switches plain DNS on.</p>
+
+          <h3>Fixing apps that break</h3>
+          <p>At stricter levels some apps will misbehave. We use the guided <b>Fix an app</b> check on the apps we use every day, and change it wherever it points at the wrong address or takes too many steps.</p>
+
+          <h3>The password manager and Autofill</h3>
+          <p>Android Autofill behaves differently between apps and browsers. We're filling logins across the phones to find the places it doesn't offer to fill, or fills the wrong field.</p>
+
+          <h3>Reading it comfortably</h3>
+          <p>Light and dark themes, large text, and screen readers on every main screen.</p>
+
+          <h2>What comes after</h2>
+          <p>The browser extension for Chrome, Edge, Opera and Firefox has been built and tested. Android tablet layouts are ready, and testing on real tablets comes next. Desktop apps and iPhone come later.</p>
+
+          <h2>So, when?</h2>
+          <p>When the Android app passes these tests on the real phones. We'd rather give you no date than a wrong one. When it's released, it will be on the <a href="download.html">download page</a>, and this blog will say so.</p>
+        </div></div></section>
+</article>
+</main>
+<footer class="v2-foot site-footer">
+  <div class="wrap-wide">
+    <div class="v2-foot-cols">
+      <div>
+        <a class="v2-brand" href="index.html"><img src="assets/logo-symbol.png" alt="" width="24" height="24"><span>Ashta<span class="w">Lok</span></span></a>
+        <p>Ads stop at the wall. Decided on your device.</p>
+      </div>
+      <div><h2>Products</h2><ul><li><a href="android.html">Android</a></li><li><a href="browser-extension.html">Browser extension</a></li><li><a href="desktop.html">Windows</a></li><li><a href="iphone.html">iPhone and iPad</a></li><li><a href="passwords.html">Password manager</a></li></ul></div>
+      <div><h2>Support</h2><ul><li><a href="help.html">Help center</a></li><li><a href="welcome.html">Getting started</a></li><li><a href="help.html#report">Report a problem</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div><h2>Account</h2><ul><li><a href="download.html">Download</a></li></ul></div>
+      <div><h2>This site</h2><ul><li><a href="products.html">All products</a></li></ul></div>
+    </div>
+    <p class="fine">© 2026 AshtaLok. This website runs no analytics or trackers and loads nothing from other companies. It sets no cookies unless you sign in, and then only the one that keeps you signed in.</p>
+    <p class="fine">The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License. Android is a trademark of Google LLC; the other product names here are their owners' trademarks, and AshtaLok is not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

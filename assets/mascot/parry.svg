@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" aria-hidden="true" focusable="false">
+<ellipse cx="120" cy="214" rx="52" ry="7" fill="#062B79" opacity=".12"/>
+<rect x="84" y="186" width="72" height="24" rx="12" fill="#062B79"/>
+<g fill="#00B4BA"><circle cx="102" cy="198" r="5"/><circle cx="120" cy="198" r="5"/><circle cx="138" cy="198" r="5"/></g>
+<path d="M182 146 Q196 156 196 172" fill="none" stroke="#062B79" stroke-width="12" stroke-linecap="round"/><circle cx="196" cy="174" r="9" fill="#062B79"/>
+
+<path d="M136 62 L148 32" stroke="#062B79" stroke-width="6" stroke-linecap="round"/>
+<circle cx="150" cy="27" r="9" fill="#E9BE66"/>
+<circle cx="147" cy="24" r="3" fill="#FFFFFF" opacity=".7"/>
+<clipPath id="parry-neutral-b"><circle cx="120" cy="126" r="64"/></clipPath>
+<circle cx="120" cy="126" r="64" fill="#E7F4F4"/>
+<g clip-path="url(#parry-neutral-b)">
+  <path d="M40 106 Q120 92 200 106 V40 H40 Z" fill="#1C4BA8"/>
+  <path d="M40 176 Q120 206 200 176 V220 H40 Z" fill="#BFE3E6"/>
+</g>
+<circle cx="120" cy="126" r="64" fill="none" stroke="#062B79" stroke-width="6"/>
+<rect x="70" y="98" width="100" height="42" rx="21" fill="#0B2A33" stroke="#062B79" stroke-width="4"/>
+<rect x="93" y="110" width="14" height="20" rx="7" fill="#2FD2D6"/><rect x="133" y="110" width="14" height="20" rx="7" fill="#2FD2D6"/>
+<ellipse cx="94" cy="152" rx="6" ry="3.5" fill="#C8453D" opacity=".3"/><ellipse cx="146" cy="152" rx="6" ry="3.5" fill="#C8453D" opacity=".3"/>
+<path d="M111 152 Q120 160 129 152" fill="none" stroke="#062B79" stroke-width="4.5" stroke-linecap="round"/>
+<rect x="48" y="112" width="14" height="28" rx="7" fill="#00B4BA" stroke="#062B79" stroke-width="4"/>
+<rect x="178" y="112" width="14" height="28" rx="7" fill="#00B4BA" stroke="#062B79" stroke-width="4"/>
+<path d="M84 80 Q98 68 116 66" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+<g transform="translate(50 164) rotate(-8) scale(0.9)">
+  <path d="M0 -32 L28 -22 V2 C28 20 14 32 0 36 C-14 32 -28 20 -28 2 V-22 Z" fill="#2FD2D6" stroke="#062B79" stroke-width="5" stroke-linejoin="round"/>
+  <g fill="#062B79">
+    <rect x="-16" y="-14" width="15" height="9" rx="2"/><rect x="2" y="-14" width="15" height="9" rx="2"/>
+    <rect x="-8" y="-2" width="16" height="9" rx="2"/>
+    <rect x="-15" y="10" width="14" height="8" rx="2"/><rect x="2" y="10" width="13" height="8" rx="2"/>
+  </g>
+</g>
+</svg>

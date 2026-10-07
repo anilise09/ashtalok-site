@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300" aria-hidden="true" focusable="false">
+<!-- Mason: the builder of the wall. Brick-quilted bomber, teal goggles pushed up, tall flat-top, hands in pockets. -->
+<defs>
+  <clipPath id="ms-jk"><path d="M84 118C96 112 144 112 156 118L166 132L162 190H78L74 132Z"/></clipPath>
+</defs>
+<g stroke="#0A1B44" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+  <ellipse cx="120" cy="289" rx="60" ry="7" fill="#062B79" opacity=".16" stroke="none"/>
+  <!-- legs -->
+  <path d="M82 194H158L150 274H126L120 214L114 274H90Z" fill="#0E2350"/>
+  <path d="M120 200V214" stroke="#0A1B44" stroke-width="2"/>
+  <!-- sneakers -->
+  <path d="M114 268H94C86 268 80 276 80 282V287H116Z" fill="#E7F4F4"/>
+  <path d="M126 268H146C154 268 160 276 160 282V287H124Z" fill="#E7F4F4"/>
+  <path d="M80 282H116M124 282H160" stroke="#00B4BA" stroke-width="3"/>
+  <!-- arms (behind jacket edge), elbows out, hands in pockets -->
+  <path d="M78 124C62 132 60 160 66 186L84 196L94 184C86 170 84 148 88 128Z" fill="#1D52B8"/>
+  <path d="M162 124C178 132 180 160 174 186L156 196L146 184C154 170 156 148 152 128Z" fill="#1D52B8"/>
+  <path d="M66 184L84 194L90 186L72 176Z" fill="#2FD2D6"/>
+  <path d="M174 184L156 194L150 186L168 176Z" fill="#2FD2D6"/>
+  <!-- jacket body -->
+  <path d="M84 118C96 112 144 112 156 118L166 132L162 190H78L74 132Z" fill="#1747A6"/>
+  <g clip-path="url(#ms-jk)" fill="none" stroke="#0F3A8C" stroke-width="1.6">
+    <path d="M70 140H170M70 158H170M70 176H170"/>
+    <path d="M92 122V140M112 122V140M128 122V140M148 122V140M102 140V158M138 140V158M92 158V176M148 158V176M102 176V190M138 176V190"/>
+  </g>
+  <path d="M84 118C96 112 144 112 156 118L166 132L162 190H78L74 132Z" fill="none"/>
+  <!-- ribbed hem -->
+  <rect x="76" y="186" width="88" height="12" rx="4" fill="#2FD2D6"/>
+  <path d="M86 188v8M96 188v8M106 188v8M116 188v8M126 188v8M136 188v8M146 188v8M156 188v8" stroke="#00B4BA" stroke-width="1.6"/>
+  <!-- zip -->
+  <path d="M120 122V186" stroke="#0A1B44" stroke-width="2"/>
+  <!-- collar -->
+  <path d="M100 112Q120 124 140 112L144 122Q120 134 96 122Z" fill="#2FD2D6"/>
+  <!-- chest patch -->
+  <rect x="132" y="134" width="20" height="20" rx="5" fill="#0B2A33"/>
+  <g transform="translate(142 144)" stroke="none" fill="#2FD2D6"><rect x="-7" y="-5" width="6.5" height="4.5" rx="1"/><rect x="0.5" y="-5" width="6.5" height="4.5" rx="1"/><rect x="-7" y="0.5" width="3" height="4.5" rx="1"/><rect x="-3" y="0.5" width="6" height="4.5" rx="1"/><rect x="4" y="0.5" width="3" height="4.5" rx="1"/></g>
+  <!-- neck -->
+  <path d="M110 92H130V112H110Z" fill="#7A4A31"/>
+  <!-- ears -->
+  <ellipse cx="95" cy="74" rx="5" ry="7" fill="#7F4E34"/>
+  <ellipse cx="145" cy="74" rx="5" ry="7" fill="#7F4E34"/>
+  <!-- face -->
+  <path d="M96 58C96 46 106 42 120 42C134 42 144 46 144 58V78C144 92 134 102 120 102C106 102 96 92 96 78Z" fill="#8D5A3B"/>
+  <!-- flat-top hair -->
+  <path d="M94 66L92 22C92 16 96 12 102 12H138C144 12 148 16 148 22L146 66L142 56C140 50 134 48 128 48H112C106 48 100 50 98 56Z" fill="#1A1A2E"/>
+  <path d="M97 56V70L100 66V56Z" fill="#1A1A2E" stroke="none"/>
+  <path d="M143 56V70L140 66V56Z" fill="#1A1A2E" stroke="none"/>
+  <!-- goggles on the hair -->
+  <path d="M92 38Q120 30 148 38" fill="none" stroke="#0B2A33" stroke-width="6"/>
+  <circle cx="108" cy="36" r="10" fill="#0B2A33"/>
+  <circle cx="132" cy="36" r="10" fill="#0B2A33"/>
+  <circle cx="108" cy="36" r="6.5" fill="#2FD2D6" stroke="none"/>
+  <circle cx="132" cy="36" r="6.5" fill="#2FD2D6" stroke="none"/>
+  <path d="M105 33L109 32M129 33L133 32" stroke="#FFFFFF" stroke-width="2"/>
+  <!-- brows -->
+  <path d="M102 62L114 60M126 59L138 57" stroke="#1A1A2E" stroke-width="3.6"/>
+  <!-- eyes: half-lidded, confident -->
+  <path d="M103 70Q109 66 115 70Q109 74 103 70Z" fill="#FFFFFF" stroke-width="1.6"/>
+  <path d="M125 70Q131 66 137 70Q131 74 125 70Z" fill="#FFFFFF" stroke-width="1.6"/>
+  <circle cx="110" cy="70" r="2.6" fill="#0A1B44" stroke="none"/>
+  <circle cx="132" cy="70" r="2.6" fill="#0A1B44" stroke="none"/>
+  <path d="M102 69Q109 65 116 69M124 69Q131 65 138 69" fill="none" stroke-width="2.4"/>
+  <!-- nose + smirk -->
+  <path d="M121 76Q124 82 119 83" fill="none" stroke="#6B3F28" stroke-width="2"/>
+  <path d="M111 90Q121 94 131 88" fill="none" stroke="#3C1D13" stroke-width="2.6"/>
+</g>
+</svg>
